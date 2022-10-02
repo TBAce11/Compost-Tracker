@@ -525,6 +525,16 @@
                 En assumant qu’on a la composition des bacs, vous pouvez formuler différents ratios pour refléter l’activité écologique individuelle et d’après les données de suivi du <br>
                 traitement, vous pouvez formuler des ratios pour refléter l’efficacité du traitement au niveau municipale. Pour le choix des ratios ou métriques et la visualisation, nous attendons vos propositions.
                         <br><br>
+                        Semaine 2:<br>
+                                        
+                1) Lorsqu'un résident ou un consommateur s'inscrit, faut-il passer par un agent ou par la ville pour confirmer l'authenticité du résident ou du consommateur ?<br>
+                <br>
+                Non, une API est interrogée pour vérifier le statut d’un consommateur et permettre à un résident de s’inscrire.<br>
+                <br>
+                2) Pour les métriques qui seront affichées au niveaux municipal et résidentiel, à quelles fréquences faut-il les mettre à jour et quelles échelles de temps utiliser pour montrer l'efficacité du traitement (jour, semaine, mois ...) ?<br>
+                <br>
+                Le contenu d’un bac pourrait être mis à jour chaque jour, mais les métriques elles-mêmes pourraient être mises à jour chaque semaine (ça dépend du choix de métriques). De même pour le suivi du traitement (min chaque semaine). Au niveau municipal, je pense qu’une mise à jour mensuel serait plus appropriée, car le processus de traitement semble assez long (à vérifier).            
+                        <br><br>
                 Présentation des hypothèses (optionnel)
                     </em>
                 </p>
@@ -599,16 +609,39 @@
 
                 <h3 class="subsection-title">Cas d'utilisation</h3>
                 <div class="use-case">
-                    <a class="use-case-link" href="lien-vers-fichier.vpp">
-                        <img class="use-case-img" src="images/use_case_diagram.svg" alt="">
+                    <a class="use-case-link" href="VPP/use_case_diagram1.vpp">
+                        <img class="use-case-img" src="images/use_case_diagram.png" alt="">
                     </a>
                     <p class="use-case-notes">
                         <em>
-                            Notes à propos du diagramme <br>
+                            Notes à propos du diagramme <br><br>
                             - choix des acteurs <br>
-                            - choix des relations
+                            Résident : la raison pour laquelle on développe le produit.<br>
+                            Éboueur : Personne qui sert d'intermédiaire au traitement des déchets.<br>
+                            Ville : Acteur à contacter en cas de problème.<br>
+                            API : Interface intermédiaire entre l'utilisateur et l'application.<br><br>
+                            - choix des relations<br>
+                            Les relations représentent les différentes fonctions de l'application.
                         </em>
                     </p>
+
+                </div>
+                <div class="use-case">
+                    <a class="use-case-link" href="VPP/use_case_diagram2.vpp">
+                        <img class="use-case-img" src="images/use_case_diagram2.png" alt="">
+                    </a><br>
+
+                </div>
+                <div class="use-case">
+                    <a class="use-case-link" href="VPP/use_case_diagram3.vpp">
+                        <img class="use-case-img" src="images/use_case_diagram3.png" alt="">
+                    </a><br>
+
+                </div>
+                <div class="use-case">
+                    <a class="use-case-link" href="VPP/use_case_diagram4.vpp">
+                        <img class="use-case-img" src="images/use_case_diagram4.png" alt="">
+                    </a><br>
                 </div>
 
                 <h3 class="subsection-title">Scénarios</h3>
@@ -616,10 +649,10 @@
                 <div class="scenario" id="cu-1">
                     <div class="scenario-meta">
                         <h4 class="cu-name">
-                            <strong>CU:</strong> Signaler un problème
+                            <strong>CU:</strong> Trouver un consommateur
                         </h4>
                         <p class="cu-goal">
-                            <strong>Objectif:</strong> Un utilisateur souhaite signaler un problème à la ville
+                            <strong>Objectif: Trouver un consommateur de déchets</strong> 
                         </p>
                         
                         <hr>
@@ -628,14 +661,13 @@
                             <h5 class="cu-part-title">Acteurs</h5>
                             <ul class="bare-list cu-actors">
                                 <li class="cu-actor">Utilisateur (Principal)</li>
-                                <li class="cu-actor">Ville (Secondaire)</li>
                             </ul>
                         </div>
                         
                         <div class="cu-part">
                             <h5 class="cu-part-title">Préconditions</h5>
                             <ul class="bare-list cu-conditions">
-                                <li class="dash">L'utilisateur est enregistré et réside dans la ville qu'il souhaite contacter.</li>
+                                <li class="dash">L'utilisateur est inscrit et a au moins un bac d'enregistré.</li>
                             </ul>
                         </div>
                         
@@ -654,34 +686,33 @@
                     <div class="scenario-main">
                         <h5 class="scenario-main-title">Scénario principal</h5>
                         <ol class="scenario-main-steps">
-                            <li class="scenario-main-step">Le professionnel se présente à l’accueil et donne son numéro.</li>
-                            <li class="scenario-main-step">L’agent entre le numéro dans le système.</li>
-                            <li class="scenario-main-step">Le système valide le numéro du membre.</li>
-                            <li class="scenario-main-step">Le professionnel indique à l’agent le service qu’il souhaite fournir.</li>
-                            <li class="scenario-main-step">L’agent <a href="#cu-2">consulte le Répertoire des services</a> pour trouver le code de service.</li>
-                            <li class="scenario-main-step">L’agent demande au professionnel le reste des informations requises.</li>
-                            <li class="scenario-main-step">L’agent entre les données dans le système.</li>
-                            <li class="scenario-main-step">Le système affiche les détails de la séance nouvellement créée.</li>
+                            <li class="scenario-main-step">L'utilisateur se connecte à l'application.</li>
+                            <li class="scenario-main-step">Il appuie sur l'option du menu pour trouver un consommateur.</li>
+                            <li class="scenario-main-step">Plusieurs menus déroulants s'affichent afin de lui permettre de choisir ses paramètres de recherche.</li>
+                            <li class="scenario-main-step">Il choisit les paramètres qui lui conviennent.</li>
+                            <li class="scenario-main-step">Il sélectionne un consommateur qui comble ses besoins parmi ceux filtrés.</li>
+                            <li class="scenario-main-step">L'application affiche les diverses informations du consommateur.</li>
                         </ol>
 
                         <div class="scenario-alt">
                             <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
                             <ol class="bare-list scenario-alt-steps">
-                                <li class="scenario-alt-step" value="4">
-                                    Le compte est suspendu.
+                                <li class="scenario-alt-step" value="3">
+                                    
                                     <ol class="bare-list">
-                                        <li value="4">Le système affiche Compte suspendu à l'écran</li>
-                                        <li value="4">Le scénario se termine</li>
+                                        <li value="3">L'utilisateur connait déjà le nom du consommateur qu'il désire contacter.</li>
+                                        <li value="3">L'utilisateur entre son nom dans une barre de recherche.</li>
+                                        <li value="3">L'application affiche une liste de consommateurs pertinents. </li>
                                     </ol>
                                 </li>
                             </ol>
                             <ol class="bare-list scenario-alt-steps">
-                                <li class="scenario-alt-step" value="6">
-                                    Le service souhaité n'est pas offert chez GYM.
+                                <li class="scenario-alt-step" value="4">
+                                    
                                     <ol class="bare-list">
-                                        <li value="6">L'agent ne trouve pas le code pour le service demandé.</li>
-                                        <li value="6">L'agent informe le professionnel de la non-disponibilité du service.</li>
-                                        <li value="6">Le scénario se termine.</li>
+                                        <li value="4">Aucun consommateur ne correspond aux paramètres de l'utilisateur.</li>
+                                        <li value="4">L'application lui retourne une liste vide.</li>
+
                                     </ol>
                                 </li>
                             </ol>
@@ -692,10 +723,10 @@
                 <div class="scenario" id="cu-2">
                     <div class="scenario-meta">
                         <h4 class="cu-name">
-                            <strong>CU:</strong> Consulter le répertoire des services
+                            <strong>CU:</strong> 
                         </h4>
                         <p class="cu-goal">
-                            <strong>Objectif:</strong> Obtenir la liste des services et séances offerts et disponibles
+                            <strong>Objectif:</strong> 
                         </p>
                         
                         <hr>
@@ -729,8 +760,8 @@
                     <div class="scenario-main">
                         <h5 class="scenario-main-title">Scénario principal</h5>
                         <ol class="scenario-main-steps">
-                            <li class="scenario-main-step">L’agent ouvre le Répertoire des services.</li>
-                            <li class="scenario-main-step">Le système affiche la liste des services offerts par GYM ainsi que toutes les séances disponibles durant la journée.</li>
+                            <li class="scenario-main-step"></li>
+                            <li class="scenario-main-step"></li>
                         </ol>
 
                         <div class="scenario-alt">
