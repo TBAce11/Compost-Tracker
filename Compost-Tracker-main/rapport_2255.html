@@ -495,8 +495,8 @@
                         Planification:
                         <br>
                         Semaine 1: Rencontre avec le client et détermination des exigences.<br>
-                        Semaine 2:<br>
-                        Semaine 3<br>
+                        Semaine 2:Établissement d'une liste de tâches à réaliser et début du rapport.<br>
+                        Semaine 3: Complétion du domaine de travail et finalisation du rapport.<br>
                         <br>
                         Échéance:<br>
                         L'équipe a jusqu'au 11 octobre pour présenter un rapport détaillé concernant le projet. <br>
@@ -535,7 +535,14 @@
                 <br>
                 Le contenu d’un bac pourrait être mis à jour chaque jour, mais les métriques elles-mêmes pourraient être mises à jour chaque semaine (ça dépend du choix de métriques). De même pour le suivi du traitement (min chaque semaine). Au niveau municipal, je pense qu’une mise à jour mensuel serait plus appropriée, car le processus de traitement semble assez long (à vérifier).            
                         <br><br>
-                Présentation des hypothèses (optionnel)
+                Priorisation:<br> 
+                Nous avons tout d'abord établi les fonctionnalités que l'application devrait offrir. <br>
+                Nous avons ensuite fixé des dates pour les rencontres de groupe afin d'avance le projet<br>
+                en tant qu'équipe plutôt que chacun de son côté.<br>       
+                Nous avons finalement distribué après plusieurs rencontres le restant du travail après<br>
+                avoir établi une liste de ce qu'il restait à faire.
+                        <br><br>
+
                     </em>
                 </p>
             </section>
@@ -554,10 +561,10 @@
 
                 <h3 class="subsection-title">Glossaire</h3>
                 <dl class="glossary">
-                    <dt class="glossary-term">Terme 1</dt>
-                    <dd class="glossary-def">Definition Debitis vel incidunt quaerat vitae iure, amet voluptatem commodi neque perferendis, asperiores facilis fugit! Dicta possimus aperiam officiis recusandae ipsum magni dignissimos?</dd>
-                    <dt class="glossary-term">Terme 2</dt>
-                    <dd class="glossary-def">Definition Culpa assumenda pariatur doloremque accusamus obcaecati reiciendis saepe sapiente, nihil adipisci quo architecto amet veniam vero delectus ullam dolorem unde quidem? Debitis.</dd>
+                    <dt class="glossary-term">Consommateur de déchets.</dt>
+                    <dd class="glossary-def">Entité qui traîte les déchets des utilisateurs, tel qu'un centre de recyclage, un écocentre, une déchetterie.</dd>
+                    <dt class="glossary-term">Emprunte carbonne </dt>
+                    <dd class="glossary-def">L’empreinte carbone est un indicateur qui vise à mesurer l’impact d’une activité sur l’environnement, et plus particulièrement les émissions de gaz à effet de serre liées à cette activité.</dd>
                     <dt class="glossary-term">Terme 3</dt>
                     <dd class="glossary-def">Definition Alias sequi officia tempore maiores placeat omnis eum quo totam quia fuga? Officia repellendus odio ducimus dolores error dolorem hic a beatae.</dd>
                 </dl>
@@ -723,10 +730,10 @@
                 <div class="scenario" id="cu-2">
                     <div class="scenario-meta">
                         <h4 class="cu-name">
-                            <strong>CU:</strong> 
+                            <strong>CU:Faire remplacer un bac brisé.</strong> 
                         </h4>
                         <p class="cu-goal">
-                            <strong>Objectif:</strong> 
+                            <strong>Objectif:Obtenir un nouveau bac auprès de la ville.</strong> 
                         </p>
                         
                         <hr>
@@ -734,14 +741,15 @@
                         <div class="cu-part">
                             <h5 class="cu-part-title">Acteurs</h5>
                             <ul class="bare-list cu-actors">
-                                <li class="cu-actor">Agent (Principal)</li>
+                                <li class="cu-actor">Utilisateur (Principal)</li>
+                                <li class="cu-actor">Ville (Secondaire)</li>
                             </ul>
                         </div>
                         
                         <div class="cu-part">
                             <h5 class="cu-part-title">Préconditions</h5>
                             <ul class="bare-list cu-conditions">
-                                <li class="dash">Aucun.</li>
+                                <li class="dash">L'utilisateur est inscrit et a au moins un bac d'enregistré.</li>
                             </ul>
                         </div>
                         
@@ -760,13 +768,36 @@
                     <div class="scenario-main">
                         <h5 class="scenario-main-title">Scénario principal</h5>
                         <ol class="scenario-main-steps">
-                            <li class="scenario-main-step"></li>
-                            <li class="scenario-main-step"></li>
+                            <li class="scenario-main-step">L'utilisateur a un bris de bac.</li>
+                            <li class="scenario-main-step">L'utilisateur se connecte à l'application.</li>
+                            <li class="scenario-main-step">Il clique sur l'option pour signaler un problème.</li>
+                            <li class="scenario-main-step">Il sélectionne son problème parmi la liste.</li>
+                            <li class="scenario-main-step">Il confirme son identité et ses informations personnelles.</li>
+                            <li class="scenario-main-step">Un agent de la ville vérifie les informations et confirme le changement de bac.</li>
+                            <li class="scenario-main-step">Un nouveau bac est livré à l'adresse de l'utilisateur.</li>
                         </ol>
 
                         <div class="scenario-alt">
                             <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
-                            <p>Aucun</p>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="5">
+                                    
+                                    <ol class="bare-list">
+                                        <li value="5">Les informations de l'utilisateur sont éronnées.</li>
+                                        <li value="5">L'utilisateur met à jour ses informations.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="6">
+                                    
+                                    <ol class="bare-list">
+                                        <li value="6">L'utilisateur a déjà eu un nouveau bac récemment.</li>
+                                        <li value="6">L'agent de la ville fait savoir que des frais vont s'appliquer pour un nouveau bac.</li>
+
+                                    </ol>
+                                </li>
+                            </ol>
                         </div>
                     </div>
                 </div>
