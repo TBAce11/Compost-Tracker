@@ -499,10 +499,23 @@
                         Semaine 3: Complétion du domaine de travail et finalisation du rapport.<br>
                         <br>
                         Échéance:<br>
-                        L'équipe a jusqu'au 11 octobre pour présenter un rapport détaillé concernant le projet. <br>
+                        L'équipe a jusqu'au 11 octobre pour présenter un rapport détaillé concernant le projet.
+
+                         <br>
                         <br>
                         Répartition des tâches:<br>
-                        Les tâches n'ont pas de répartition particulière, chaque membre prend part à toutes les activités.<br>
+                        Nous avons eu trois semaines pour fournir un rapport assez détaillé sur le projet. Une approche collective a été une bonne première solution pour commencer.
+                        Suite à cette approche,nous avons pu faire une description du projet, travaillé sur le cas d'utilisation, travaillé sur une première approche des scénarios, déterminé les besoins fonctionnels, collecté les idées de chacun.
+                        Après cela, nous avons divisé le travail comme suit:
+                        <ul>
+                            <li>Ismail SIMO s'est occupé de fournir un prototype.</li>
+                            <li>Farouk KHEDER s'est occupé de formuler les hypothèses émises dans l'élaboration des exigences, d'écrire le glossaire et de finaliser les scénarios du cas d'utilisation.</li>
+                            <li>Tarik BENAKEZOUH s'est occupé d'établir les besoins matériels, les contraintes et les propositions soit le choix des métriques et l'analyse de notre solution.</li>
+                            <li>Christie Kongandji Embeya s'est occupée de trouver les besoins non fonctionnels et d'établir les risques associés à ce projet.</li>
+
+                        </ul>
+                        
+                        <br>
                         <br>
                         Échanges avec le client:<br>
                         <br>
@@ -565,6 +578,39 @@
                     <dd class="glossary-def">Entité qui traîte les déchets des utilisateurs, tel qu'un centre de recyclage, un écocentre, une déchetterie.</dd>
                     <dt class="glossary-term">Emprunte carbonne </dt>
                     <dd class="glossary-def">L’empreinte carbone est un indicateur qui vise à mesurer l’impact d’une activité sur l’environnement, et plus particulièrement les émissions de gaz à effet de serre liées à cette activité.</dd>
+                    <dt class="glossary-term">Bineco</dt>
+                    <dd class="glossary-def">Est un outil qui permettra a un résident de faire le suivi des recyclables, des résidus alimentaires, de visualiser l'efficacité des activités de recyclages et compostages,
+                        de signaler un problème à la ville, de trouver un consommateur de déchets organiques ou matières recyclables.
+                    </dd>
+                    <dt class="glossary-term">Résident</dt>
+                    <dd class="glossary-def">
+                        Un utilisateur de Bineco qui peut s'inscrire sur bineco, enregistrer, afficher l'état et voir l'etat d'un bac, signaler un problème à la ville, trouver un consommateur.
+                    </dd>
+                    <dt class="glossary-term">Activités</dt>
+                    <dd class="glossary-def">
+                        Fait allusion soit à l'historique de mon utilisation de l'outil Bineco("activité que je maintiens") soit à l'outil Bineco lui-même("activité Bineco"). 
+                    </dd>
+                    <dt class="glossary-term">Bacs</dt>
+                    <dd class="glossary-def">
+                       Le conteneur des déchets.  
+                    </dd>
+                    <dt class="glossary-term">Type de bacs</dt>
+                    <dd class="glossary-def">
+                        Fait allusion au contenant des bacs(les déchets). Le contenant peut être soit des déchets compostables, récyclables ou des ordures.  
+                     </dd>
+                     <dt class="glossary-term">Etat des bacs</dt>
+                     <dd class="glossary-def">
+                        Evoque à quel niveau se trouve les bacs. Sont-ils en route vers le consommateur, sont-ils arrivés à destination ou pas.
+                     </dd>
+                     <dt class="glossary-term">Signaler un problème</dt>
+                     <dd class="glossary-def">
+                       Supposons que le bac d'un utilisateur ne soit pas achéminé au bon consommateur, celui-ci voudrait parler de cette situation à qui de droit. Signaler un problème fait référence à parler d'une situation anormale à qui de droit.  
+                     </dd>
+                     <dt class="glossary-term">Métriques écologiques</dt>
+                     <dd class="glossary-def">
+                        Un ratio, un indicateur lié à l'usage des bacs 
+                     </dd>
+
 
                 </dl>
 
@@ -585,7 +631,7 @@
                             <ul class="bare-list">
                                 <li class="check">Aider la planète</li>
                                 <li class="check">Réduire son emprunte carbone</li>
-                                <li class="check">Avantages</li>
+                                <li class="check">Limiter les effets du réchauffement climatique</li>
                             </ul>
                         </div>
                     </li>
@@ -602,8 +648,8 @@
                             <h4 class="persona-title">Buts</h4>
                             <ul class="bare-list">
                                 <li class="check">Se sensibiliser à l'écologie</li>
-                                <li class="check">Réduire son emprunte carbone </li>
-                                <li class="check">Avantages</li>
+                                <li class="check">Réduire son emprunte écologique </li>
+                                <li class="check">Éviter les émissions de gaz à effet de serre dues à l'extraction de nouvelles ressources naturelles.</li>
                             </ul>
                         </div>
                     </li>
@@ -615,9 +661,6 @@
 
                 <h3 class="subsection-title">Cas d'utilisation</h3>
                 <div class="use-case">
-                    <a class="use-case-link" href="VPP/use_case_diagram1.vpp">
-                        <img class="use-case-img" src="images/use_case_diagram.png" alt="">
-                    </a>
                     <p class="use-case-notes">
                         <em>
                             Notes à propos du diagramme <br><br>
@@ -633,22 +676,12 @@
 
                 </div>
                 <div class="use-case">
-                    <a class="use-case-link" href="VPP/use_case_diagram2.vpp">
-                        <img class="use-case-img" src="images/use_case_diagram2.png" alt="">
+                    <a class="use-case-link" href="VPP/CasUtilisation.vpp">
+                        <img class="use-case-img" src="images/captureCasUtilisation.jpg" alt="">
                     </a><br>
 
                 </div>
-                <div class="use-case">
-                    <a class="use-case-link" href="VPP/use_case_diagram3.vpp">
-                        <img class="use-case-img" src="images/use_case_diagram3.png" alt="">
-                    </a><br>
-
-                </div>
-                <div class="use-case">
-                    <a class="use-case-link" href="VPP/use_case_diagram4.vpp">
-                        <img class="use-case-img" src="images/use_case_diagram4.png" alt="">
-                    </a><br>
-                </div>
+                
 
                 <h3 class="subsection-title">Scénarios</h3>
 
@@ -680,7 +713,7 @@
                         <div class="cu-part">
                             <h5 class="cu-part-title">Postconditions</h5>
                             <ul class="bare-list cu-conditions">
-                                <li class="dash">Aucun</li>
+                                <li class="dash">L'utilisateur garde son compte et son historique de recherche est sauvegardé dans l'outil.</li>
                             </ul>
                         </div>
 
@@ -692,12 +725,19 @@
                     <div class="scenario-main">
                         <h5 class="scenario-main-title">Scénario principal</h5>
                         <ol class="scenario-main-steps">
-                            <li class="scenario-main-step">L'utilisateur se connecte à l'application.</li>
-                            <li class="scenario-main-step">Il appuie sur l'option du menu pour trouver un consommateur.</li>
-                            <li class="scenario-main-step">Plusieurs menus déroulants s'affichent afin de lui permettre de choisir ses paramètres de recherche.</li>
-                            <li class="scenario-main-step">Il choisit les paramètres qui lui conviennent.</li>
-                            <li class="scenario-main-step">Il sélectionne un consommateur qui comble ses besoins parmi ceux filtrés.</li>
-                            <li class="scenario-main-step">L'application affiche les diverses informations du consommateur.</li>
+                            <li class="scenario-main-step">L'utilisateur se connecte à l'outil bineco.</li>
+                            <li class="scenario-main-step">L'outil Bineco demande à l'utilisateur s'il connaît le nom du consommateur.</li>
+                            <li class="scenario-main-step">L'utilisateur repond "Non".</li>
+                            <li class="scenario-main-step">L'outil Bineco fournit un menu déroulant permettant à l'utilisateur de choisir ses paramètre de recherche.</li>
+                            <li class="scenario-main-step">L'utilisateur choisit les paramètres qui lui conviennent.</li>
+                            <li class="scenario-main-step">L'outil Bineco vérifie les paramètres entrés par l'utilisateur.</li>
+                            <li class="scenario-main-step">Les paramètres correspondent aux donnés des certains consommateurs.</li>
+                            <li class="scenario-main-step">L'outil Bineco fournit une liste des consommateurs correspondants aux paramètres choisis.</li>
+                            <li class="scenario-main-step">L'utilisateur choisit un consommateur dans la liste fournie.</li>
+                            <li class="scenario-main-step">L'outil Bineco affiche les informations du consommateur.</li>
+                            <li class="scenario-main-step">L'utilisateur valide son choix.</li>
+                            <li class="scenario-main-step">L'outil Bineco envoie un message de validation.</li>
+
                         </ol>
 
                         <div class="scenario-alt">
@@ -706,18 +746,20 @@
                                 <li class="scenario-alt-step" value="3">
 
                                     <ol class="bare-list">
-                                        <li value="3">L'utilisateur connait déjà le nom du consommateur qu'il désire contacter.</li>
-                                        <li value="3">L'utilisateur entre son nom dans une barre de recherche.</li>
-                                        <li value="3">L'application affiche une liste de consommateurs pertinents. </li>
+                                        <li value="3">L'utilisateur repond "Oui"</li>
+                                        <li value="3">L'outil Bineco demande à l'utilisateur d'entrer les informations du consommateur.</li>
+                                        <li value="3">L'utilisateur entre les informations du consommateur. </li>
+                                        <li value="3">On retourne à l'étape 6 du scénario principal. </li>
                                     </ol>
                                 </li>
                             </ol>
                             <ol class="bare-list scenario-alt-steps">
-                                <li class="scenario-alt-step" value="4">
+                                <li class="scenario-alt-step" value="6">
 
                                     <ol class="bare-list">
-                                        <li value="4">Aucun consommateur ne correspond aux paramètres de l'utilisateur.</li>
-                                        <li value="4">L'application lui retourne une liste vide.</li>
+                                        <li value="6">La vérification des paramètres par l'outil Bineco a échoué.</li>
+                                        <li value="6">L'outil Bineco renvoie un message d'erreur.</li>
+                                        <li value="6">Le programme s'arrête. </li>
 
                                     </ol>
                                 </li>
@@ -755,7 +797,7 @@
                         <div class="cu-part">
                             <h5 class="cu-part-title">Postconditions</h5>
                             <ul class="bare-list cu-conditions">
-                                <li class="dash">Aucun</li>
+                                <li class="dash">L'utilisateur garde son compte et son historique de recherche est sauvegardé dans l'outil.</li>
                             </ul>
                         </div>
 
@@ -767,36 +809,29 @@
                     <div class="scenario-main">
                         <h5 class="scenario-main-title">Scénario principal</h5>
                         <ol class="scenario-main-steps">
-                            <li class="scenario-main-step">L'utilisateur a un bris de bac.</li>
-                            <li class="scenario-main-step">L'utilisateur se connecte à l'application.</li>
-                            <li class="scenario-main-step">Il clique sur l'option pour signaler un problème.</li>
-                            <li class="scenario-main-step">Il sélectionne son problème parmi la liste.</li>
-                            <li class="scenario-main-step">Il confirme son identité et ses informations personnelles.</li>
-                            <li class="scenario-main-step">Un agent de la ville vérifie les informations et confirme le changement de bac.</li>
-                            <li class="scenario-main-step">Un nouveau bac est livré à l'adresse de l'utilisateur.</li>
+                            <li class="scenario-main-step">L'utilisateur se connecte à l'outil Bineco.</li>
+                            <li class="scenario-main-step">L'utilisateur clique sur l'option pour signaler un problème à la ville.</li>
+                            <li class="scenario-main-step">L'outil Bineco fournit une liste de problème courant.</li>
+                            <li class="scenario-main-step">L'utilisateur sélectionne un problème parmi ceux de la liste.</li>
+                            <li class="scenario-main-step">L'outil demande à l'utilisateur de fournir ses informations personnelles.</li>
+                            <li class="scenario-main-step">L'utilisateur fournit ses informations personnelles.</li>
+                            <li class="scenario-main-step">L'outil verifie les informations de l'utilisateur.</li>
+                            <li class="scenario-main-step">L'outil confirme le changement du bac.</li>
+                            <li class="scenario-main-step">L'outil confirme l'envoie du nouveau bac à l'adresse donnée.</li>
                         </ol>
 
                         <div class="scenario-alt">
                             <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
                             <ol class="bare-list scenario-alt-steps">
-                                <li class="scenario-alt-step" value="5">
+                                <li class="scenario-alt-step" value="8">
 
                                     <ol class="bare-list">
-                                        <li value="5">Les informations de l'utilisateur sont éronnées.</li>
-                                        <li value="5">L'utilisateur met à jour ses informations.</li>
+                                        <li value="8">Les informations de l'utilisteur sont erronées.</li>
+                                        <li value="8">Le programme s'arrête.</li>
                                     </ol>
                                 </li>
                             </ol>
-                            <ol class="bare-list scenario-alt-steps">
-                                <li class="scenario-alt-step" value="6">
-
-                                    <ol class="bare-list">
-                                        <li value="6">L'utilisateur a déjà eu un nouveau bac récemment.</li>
-                                        <li value="6">L'agent de la ville fait savoir que des frais vont s'appliquer pour un nouveau bac.</li>
-
-                                    </ol>
-                                </li>
-                            </ol>
+                          
                         </div>
                     </div>
                 </div>
@@ -819,7 +854,7 @@
                 <div>
                     <h3 class="subsection-title">Exigences non-fonctionnelles</h3>
                     <ol class="nf-requirements">
-                        <li>Langage de programmation portable : Cela permettra à Binecco d'être éxécuté sur differents environnements.</li>
+                        <li>Fiabilité : Assurer aux utilisateurs que Bineco permet le suivi des déchets à 99,9%</li>
                         <li>Protections des données : Bineco pourra garantir la sécurité des differentes informations des utilisateurs.</li>
                         <li>Adapter sur mobile et PC : Pour facilité l'utilisation de Bineco.</li>
                         <li>Sauvegarde des données : Pour permettre aux utilisateurs de consulter leurs historiques en temps voulu. </li>
