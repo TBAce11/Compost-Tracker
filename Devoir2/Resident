@@ -1,0 +1,100 @@
+import java.util.ArrayList; // import the ArrayList class
+
+public class Resident extends Utilisateur {
+    
+
+        ArrayList<int> Bacid = new ArrayList<String>(); 
+        ArrayList<String> BacContenu = new ArrayList<String>();
+        ArrayList<boolean> BacEtats = new ArrayList<String>(); 
+         
+        
+      
+        private String Prenom ;
+        private String Email  ;
+        private String Adresse ;
+        private int Telephone ;
+        
+        
+        
+        
+        
+        public Resident () {  
+            
+            
+	        
+        }
+
+        //------------------- Methode
+        
+        //ajouter bac
+        public void EnregistrerBac(int Bid,String BType){
+           Bacid.add(Bid);
+           BacContenu.add(BType);
+           BacEtats.add(true);
+        } 
+
+        //suprimer bac 
+        public void suprBac(int Bid){
+            private int index =IndexBac(Bid);
+            Bacid.remove(index);
+            BacContenu.remove(index);
+            cars.remove(index);
+        } 
+
+        //chercher bac avec id
+        public void IndexBac(int Bid){
+           Bacid.indexOf(Bid)
+        } 
+
+
+
+
+
+
+       
+
+      //--------- getters
+    
+    public String getNom() {
+        return Nom;
+    } 
+
+    public String getPrenom() {
+        return Prenom;
+    } 
+
+    public String getEmail() {
+        return Email;
+    } 
+    
+    public String getAdresse() {
+        return Adresse;
+    } 
+
+    public int getTelephone() {
+        return Telephone;
+    } 
+    
+   
+    //--------- setters
+    
+    public void setNom(String Nom) {
+        this.Nom = Nom;
+    }
+    
+    public void setEmail(String Email) {
+        this.Email = Email;
+    }
+
+    public void setTelephone(int Telephone) {
+        this.Telephone = Telephone;
+    }
+
+        
+        
+      
+
+       
+       
+}
+
