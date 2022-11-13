@@ -15,11 +15,10 @@ class  prototype {
 
   public static void mainmenu() {
     NewResident();
-    UserTab.add(new Resident (1,"nom","prenom","456","test@gmail.com"));
-    //System.out.println(UserTab.get(0).getEmail()+UserTab.get(0).getMdp()+UserTab.get(0).getid());
-    System.out.println(verifUser("b","b"));
-    System.out.println(verifUser("test@gmail.com","456"));
+    UserTab.add(new Resident (1,"nom","prenom","456","test"));
     
+    
+    System.out.println(Connexion());
   }
 
 
@@ -27,6 +26,19 @@ class  prototype {
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 
+
+  //conexxion recupere les input
+  public static Boolean Connexion() {
+    System.out.println("CONNEXION");
+    System.out.println("Email: ");
+    String UserMail = getInputString();
+
+    System.out.println("Mots de passe: ");
+    String UserMdp = getInputString();
+   
+    return verifUser(UserMail,UserMdp);
+    
+  }
 
   //verifie si cette utilisateur existe dans le tableau
   public static Boolean verifUser(String Email,String mdp) {
@@ -39,7 +51,7 @@ class  prototype {
       //System.out.println(userVerif.getEmail()+" "+Email);
       String verifEmail=userVerif.getEmail();
       String verifMdp=userVerif.getMdp();
-      if (verifEmail==Email && verifMdp==mdp ){
+      if (verifEmail.compareTo(Email)==0 && verifMdp.compareTo(mdp)==0  ){
         
         return true;
       }
@@ -116,12 +128,5 @@ class  prototype {
   }
 
   
-   
-
-
-
-
-
-
 
 }
