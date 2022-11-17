@@ -4,8 +4,7 @@ public class Resident extends Utilisateur {
     
 
         ArrayList<Integer> Bacid = new ArrayList<Integer>(); 
-        ArrayList<String> BacContenu = new ArrayList<String>();
-        ArrayList<Boolean> BacEtats = new ArrayList<Boolean>(); 
+       
          
         
       
@@ -18,7 +17,7 @@ public class Resident extends Utilisateur {
         
         
         
-        public Resident (int id,String Nom,String Prenom,String Mdp,String Email) {  
+        public Resident (int id,String Nom,String Prenom,String Mdp,String Email,String Adresse) {  
             
             
             this.id=id;
@@ -26,37 +25,20 @@ public class Resident extends Utilisateur {
             this.Prenom=Prenom;
             this.Mdp=Mdp;
             this.Email=Email;
+            this.Adresse=Adresse;
 	        
         }
 
         //------------------- Methode
         
         //ajouter bac
-        public void EnregistrerBac(int Bid,String BType){
+        public void newBac(int Bid){
            Bacid.add(Bid);
-           BacContenu.add(BType);
-           BacEtats.add(true);
         } 
 
-        //suprimer bac 
-        public void suprBac(int Bid){
-            int index ;
-            index =IndexBac(Bid);
-            Bacid.remove(index);
-            BacContenu.remove(index);
-            BacEtats.remove(index);
-        } 
+        
 
-        //chercher bac avec id
-        public int IndexBac(int SerchId){
-            for (int i = 0; i < Bacid.size(); i++) {
-                if (SerchId==Bacid.get(i)){
-                    return i;
-                }
-                
-            }
-            return (-1);
-        } 
+        
 
 
 

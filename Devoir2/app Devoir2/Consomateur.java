@@ -1,24 +1,32 @@
 import java.util.ArrayList; // import the ArrayList class
 
 public class Consomateur extends Utilisateur {
-    
+        ArrayList<String> TypeDechet = new ArrayList<String>(); 
         ArrayList<Integer> tabNote = new ArrayList<Integer>(); 
         protected int note ;
         
         protected String Adresse ;
         protected int Telephone ;
 
-        protected int capTraitement;
-        protected String exploitation; 
+        protected String capacite;
+        protected String activites; 
+        
 
-//string ou array au choix
-        protected String TypeDechet ;
         
         
         
         
-        public Consomateur () {
-            
+        public Consomateur (int id,String Nom,String Adresse,String Mdp,String Email,int Telephone,String activites,String TypeDechet,String capacite) {
+            this.id=id;
+            this.Nom=Nom;
+            this.Adresse=Adresse;
+            this.Mdp=Mdp;
+            this.Email=Email;
+
+            this.Telephone=Telephone;
+            this.activites=activites;
+            this.TypeDechet.add(TypeDechet);
+            this.capacite=capacite;
 	        
         }
 
@@ -33,6 +41,12 @@ public class Consomateur extends Utilisateur {
 
             this.note= totalNote/tabNote.size();
         }
+
+        public void newTypeDechet (String type){
+            TypeDechet.add(type);
+        }
+
+
        
 
     //--------- getters
