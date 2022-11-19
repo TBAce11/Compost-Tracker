@@ -4,8 +4,8 @@ public class MunicipInfo {
     ArrayList<Consomateur> tabConsomateur = new ArrayList<Consomateur>(); 
 
     public MunicipInfo () {
-        tabConsomateur.add(new Consomateur (10, "Consomateur10","a","a", "a", 456, "activites", "TypeDechet", "capacite"));
-        tabConsomateur.add(new Consomateur (11, "Consomateur11","a","b", "b", 456, "activites", "TypeDechet", "capacite"));
+        tabConsomateur.add(new Consomateur (10, "Consomateur10","a","a", "a", 456, "activites", "aaa", "capacite"));
+        tabConsomateur.add(new Consomateur (11, "Consomateur11","a","b", "b", 456, "activites", "aaa", "capacite"));
         tabConsomateur.add(new Consomateur (12, "Consomateur12","a","c", "c", 456, "activites", "TypeDechet", "capacite"));
         tabConsomateur.add(new Consomateur (13, "Consomateur13","a","d", "d", 456, "activites", "TypeDechet", "capacite"));
         tabConsomateur.add(new Consomateur (14, "Consomateur14","a","e", "e", 456, "activites", "TypeDechet", "capacite"));
@@ -42,5 +42,35 @@ public class MunicipInfo {
         }
         return (null);
     } 
+    //Chercher par Type
+    public ArrayList<Consomateur> chercherParType(String type){
+        Consomateur serchConsomateur;
+        ArrayList<Consomateur> filtreConsomateurs = new ArrayList<Consomateur>(); 
+        for (int i = 0; i < tabConsomateur.size(); i++) {
+            serchConsomateur=tabConsomateur.get(i);
+            if (serchConsomateur.CercherParType (type)){
+                filtreConsomateurs.add(serchConsomateur);
+            }
+            
+        }
+        return (filtreConsomateurs);
+    } 
+
+    //Chercher par nom
+    public Consomateur chercherParNom(String nom){
+        Consomateur serchConsomateur;
+        
+        for (int i = 0; i < tabConsomateur.size(); i++) {
+            serchConsomateur=tabConsomateur.get(i);
+            if (serchConsomateur.getNom().compareTo(nom)==0){
+                return (serchConsomateur);
+            }
+            
+        }
+        return (null);
+    } 
+    public void postMessage(String message) {
+        System.out.println("Message envoyer");
+    }
 
 }

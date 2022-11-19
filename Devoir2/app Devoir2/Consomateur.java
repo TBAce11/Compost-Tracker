@@ -45,7 +45,16 @@ public class Consomateur extends Utilisateur {
         public void newTypeDechet (String type){
             TypeDechet.add(type);
         }
-
+        public Boolean CercherParType (String type){
+            for (int i = 0; i < TypeDechet.size(); i++) {
+                if (TypeDechet.get(i).compareTo(type)==0){
+                    return true;
+                }
+           
+            }
+            return false;
+          }
+        
 
        
 

@@ -3,10 +3,11 @@ import java.util.ArrayList; // import the ArrayList class
 
 class  prototype {
   public static void main(String[] args) {
-    updatUserTab();
+    
     ResidentTab.add(new Resident (1,"nom","prenom1","aa","aa","truc"));
     ResidentTab.add(new Resident (2,"nom","prenom2","bb","bb","truc"));
     ResidentTab.add(new Resident (3,"nom","prenom3","cc","cc","truc"));
+    updatUserTab();
     mainMenu(); 
     
   }
@@ -89,9 +90,9 @@ class  prototype {
 //------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------
 //menu quand un resident est connecte
-  public static void MenuResident(Resident ActualUser) {
+  public static void MenuResident(Resident ActualResident) {
   
-    System.out.println("Menu Resident de l'utilisateur"+ActualUser.getNom());
+    System.out.println("Menu Resident de l'utilisateur"+ActualResident.getNom());
 
     System.out.println("0-Revenir au menus principale");
     System.out.println("1-Enregistrer un bac");
@@ -102,6 +103,7 @@ class  prototype {
     System.out.println("6-Trouver un consommateur");
 
     System.out.println("\nEnter le numero corespondant a longlet que vous voulais visiter ");
+    GestionsMenuResident( ActualResident);
   }
 
   //menu quand un consomateur est connecte
@@ -129,32 +131,31 @@ public static void GestionsMenuResident(Resident ActualResident) {
   }
   //si le Resident veux Enregistrer un bac
   else if(input==1){
-   
-
+    EnregistrerBac(ActualResident);
   }
   //si le Resident veux Afficher l'état des mes bacs
   else if(input==2){
-   
+    Etatbacs(ActualResident);
 
   }
   //si le Resident veux acceder a ces Métriques
   else if(input==3){
    
-
+    Métriques(ActualResident);
   }
   //si le Resident veux Voir l'état de traitement des déchets municipaux
   else if(input==4){
    
-
+    EtatTraitement( ActualResident);
   }
   //si le Resident veux Signaler un problème à MunicipInfo
   else if(input==5){
    
-
+    SignalerProblEme( ActualResident);
   }
   //si le Resident veux Trouver un consommateur
   else if(input==6){
-   
+    Trouverconsomateur(ActualResident);
 
   }
   //si le Resident rentre un mauvais input
@@ -165,23 +166,109 @@ public static void GestionsMenuResident(Resident ActualResident) {
 }
 
 //methode des action de resident
-public static void EnregistrerBac(Resident ActualUser) {
+public static void EnregistrerBac(Resident ActualResident) {
+   //rentre id
+   System.out.println("Enter le code fourni par le code qr ");
+   int id = getInputInt();  // Read user input
+   //rentre Adresse
+  System.out.println("Enter Votre Adresse ");
+  String Adresse = getInputString();  // Read user input
+  //rentre DateEmission
+  System.out.println("Enter la Date d'emission ");
+  String DateEmission = getInputString();  // Read user input
+  //rentre le type
+  System.out.println("Enter le type du bac");
+  String type = getInputString();  // Read user input
 
+  Bac NewBac =new Bac (id,Adresse,DateEmission,type);
+  ActualResident.newBac(id);
+  Municip.addBac(NewBac);
+  System.out.println("bac a ete ajouter"); 
+  MenuResident(ActualResident);
 }
-public static void Etatbacs(Resident ActualUser) {
+public static void Etatbacs(Resident ActualResident) {
   
 }
-public static void Métriques(Resident ActualUser) {
+public static void Métriques(Resident ActualResident) {
   
 }
-public static void EtatTraitement(Resident ActualUser) {
+public static void EtatTraitement(Resident ActualResident) {
   
 }
-public static void SignalerProblEme(Resident ActualUser) {
-  
+public static void SignalerProblEme(Resident ActualResident) {
+  String message=getInputString();
+  Municip.postMessage(message);
+  GestionsMenuResident(ActualResident);
 }
-public static void Trouverconsommateur(Resident ActualUser) {
+public static void Trouverconsomateur(Resident ActualResident) {
+  System.out.println("Pour noter un consomateur il faut le chercher par son nom exact");
+  System.out.println("0-retour menu Resident");
+  System.out.println("1-Chercher pas nom");
+  System.out.println("2-Chercher par type");
+  System.out.println("\nEnter le numero corespondant a longlet que vous voulais visiter ");
   
+
+  int input= getInputInt();
+//action du menu
+  if  (input==0){
+    mainMenu(); 
+
+  }
+  
+  //chercher par nom
+  else if(input==1){
+    System.out.println("Enter le nom du consomateur ");
+    String nom=getInputString();
+    Consomateur ConsTrouver=Municip.chercherParNom( nom);
+    //si aucun nom ne match
+    if (ConsTrouver==null){
+      System.out.println("Aucun consomateur correspondant");
+      Trouverconsomateur(ActualResident);
+    }
+    //si on trouve un nom sois on renvois au menu soit on note le consomateur
+    else{
+      System.out.println("Le consomateur"+ConsTrouver.getNom()+"a ete trouver");
+      System.out.println("0-retour menu Resident");
+      System.out.println("1-Noter le consomateur");
+      System.out.println("\nEnter le numero corespondant a longlet que vous voulais visiter ");
+      int newinput= getInputInt();
+      if  (newinput==0){
+        mainMenu(); 
+    
+      }
+      else if(newinput==1){
+        System.out.println("entrer une note");
+        int note= getInputInt();
+        ConsTrouver.newNote (note);
+        Trouverconsomateur(ActualResident);
+
+      }
+    }
+
+  }
+  else if(input==2){
+    //on recupere un type
+    System.out.println("Enter un type de dechet ");
+    String type=getInputString();
+
+    //on affiche une liste des consomateur qui corresponde a un type
+    System.out.println("Les Consomateur qui traite "+type+" sont les suivant:");
+    ArrayList<Consomateur> tabConsFiltrer =Municip.chercherParType(type);
+    for (int i = 0; i < tabConsFiltrer.size(); i++) {
+      System.out.println("Consomateur:"+tabConsFiltrer.get(i).getNom());
+    }
+    if (tabConsFiltrer.size()==0){
+      System.out.println("Aucun Consomateur corespond");
+    }
+    Trouverconsomateur(ActualResident);
+    
+  }
+  else {
+    System.out.println("réessayer taper '0','1'ou '2' pour changer d'onglet");
+    Trouverconsomateur(ActualResident);
+  }
+
+ 
 }
 
 
