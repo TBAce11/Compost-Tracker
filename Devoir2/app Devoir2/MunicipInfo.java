@@ -1,4 +1,5 @@
 import java.util.ArrayList; // import the ArrayList class
+import java.util.Date;
 
 public class MunicipInfo {
     ArrayList<Consomateur> tabConsomateur = new ArrayList<Consomateur>(); 
@@ -20,7 +21,7 @@ public class MunicipInfo {
     public ArrayList<Consomateur> ListConsomateur() {
         return tabConsomateur;
     } 
-    public void addConsomateur(Consomateur newCons) {
+    public void valideConsomateur(Consomateur newCons) {
         tabConsomateur.add(newCons);
     } 
 
@@ -42,7 +43,7 @@ public class MunicipInfo {
         }
         return (null);
     } 
-    //Chercher par Type
+    //Chercher par Type un consomateur
     public ArrayList<Consomateur> chercherParType(String type){
         Consomateur serchConsomateur;
         ArrayList<Consomateur> filtreConsomateurs = new ArrayList<Consomateur>(); 
@@ -71,6 +72,34 @@ public class MunicipInfo {
     } 
     public void postMessage(String message) {
         System.out.println("Message envoyer");
+    }
+
+
+
+    private class Lot {
+        String numero;
+        String type;
+        String parent;
+        Lot[] sous_lots;
+        Date dateRamassage;
+        Date dateLivraison;
+        String statut;
+        int qte_total;
+        int qte_traite;
+        float taux_rejet;
+        float cout;
+        Consomateur[] consomateurs;
+        String activites;
+    }
+    private ArrayList<Lot> listLot() {
+        var lotList = new ArrayList<Lot>();
+
+        return lotList;
+    }
+    private Lot getLot(String numero) {
+        var lot = new Lot();
+
+        return lot;
     }
 
 }

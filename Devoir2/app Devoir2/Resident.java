@@ -48,7 +48,9 @@ public class Resident extends Utilisateur {
        
 
       //--------- getters
-    
+      public ArrayList<Integer> getBacId() {
+        return Bacid;
+    } 
     
 
     public String getPrenom() {

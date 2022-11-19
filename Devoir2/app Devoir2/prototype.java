@@ -187,8 +187,17 @@ public static void EnregistrerBac(Resident ActualResident) {
   MenuResident(ActualResident);
 }
 public static void Etatbacs(Resident ActualResident) {
-  
+  //recupere la list des id des bac du resident
+  ArrayList <Integer> listIdBac=ActualResident.getBacId();
+  for (int i = 0; i < listIdBac.size(); i++) {
+    //recupere le bac correspondant
+    Bac residentBac=Municip.IndexBac(listIdBac.get(i));
+    System.out.println("Le Bac n° "+listIdBac.get(i)+" de type : "+ residentBac.gettype()+" est remplie a "+residentBac.getremplissage()+"%");
+
+    }
+    
 }
+
 public static void Métriques(Resident ActualResident) {
   
 }

@@ -6,6 +6,9 @@ public class Bac {
     private String type;
     private boolean vide;
 
+    private int CapMax=100;
+    private int CapActuelle=0;
+
     public Bac (int id,String Adresse,String DateEmission,String type) {
         this.id=id;
         this.Adresse=Adresse;
@@ -14,8 +17,16 @@ public class Bac {
         vide=true;
         
     }
-
+    //quand on ajoute des ellement dans un bac
+    public void remplire(int ajout) {
+        CapActuelle+=ajout;
+    } 
      //--------- getters
+
+    public int getremplissage() {
+        return CapActuelle/CapMax*100;
+    } 
+
     public int getid() {
         return id;
     } 
