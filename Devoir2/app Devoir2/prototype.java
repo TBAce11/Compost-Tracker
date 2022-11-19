@@ -202,6 +202,16 @@ public static void Métriques(Resident ActualResident) {
   
 }
 public static void EtatTraitement(Resident ActualResident) {
+  System.out.println("L'état de traitement des déchets municipaux\n");
+  System.out.println("Les lots de dechet suivant sont en traitment:");
+  ArrayList<Lot> ListLotTraitment=Municip.listLot();
+  for (int i = 0; i < ListLotTraitment.size(); i++) {
+    //recupere le bac correspondant
+    Lot LotTraitment=ListLotTraitment.get(i);
+    Municip.ConsomateurLot(LotTraitment);
+    GestionsMenuResident( ActualResident);
+
+    }
   
 }
 public static void SignalerProblEme(Resident ActualResident) {
