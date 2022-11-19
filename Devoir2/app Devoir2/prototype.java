@@ -187,12 +187,31 @@ public static void EnregistrerBac(Resident ActualResident) {
   MenuResident(ActualResident);
 }
 public static void Etatbacs(Resident ActualResident) {
-  
+  //recupere la list des id des bac du resident
+  ArrayList <Integer> listIdBac=ActualResident.getBacId();
+  for (int i = 0; i < listIdBac.size(); i++) {
+    //recupere le bac correspondant
+    Bac residentBac=Municip.IndexBac(listIdBac.get(i));
+    System.out.println("Le Bac n° "+listIdBac.get(i)+" de type : "+ residentBac.gettype()+" est remplie a "+residentBac.getremplissage()+"%");
+
+    }
+    
 }
+
 public static void Métriques(Resident ActualResident) {
   
 }
 public static void EtatTraitement(Resident ActualResident) {
+  System.out.println("L'état de traitement des déchets municipaux\n");
+  System.out.println("Les lots de dechet suivant sont en traitment:");
+  ArrayList<Lot> ListLotTraitment=Municip.listLot();
+  for (int i = 0; i < ListLotTraitment.size(); i++) {
+    //recupere le bac correspondant
+    Lot LotTraitment=ListLotTraitment.get(i);
+    Municip.ConsomateurLot(LotTraitment);
+    GestionsMenuResident( ActualResident);
+
+    }
   
 }
 public static void SignalerProblEme(Resident ActualResident) {

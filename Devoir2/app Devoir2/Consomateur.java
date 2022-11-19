@@ -66,6 +66,9 @@ public class Consomateur extends Utilisateur {
     public String getAdresse() {
         return Adresse;
     } 
+    public String getActivites() {
+        return activites;
+    } 
 
     public int getTelephone() {
         return Telephone;
