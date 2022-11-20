@@ -11,13 +11,13 @@ public class Resident extends Utilisateur {
         protected String Prenom ;
         
         protected String Adresse ;
-        protected int Telephone ;
+        protected String Telephone ;
         
         
         
         
         
-        public Resident (int id,String Nom,String Prenom,String Mdp,String Email,String Adresse) {  
+        public Resident (int id,String Nom,String Prenom,String Telephone,String Mdp,String Email,String Adresse) {  
             
             
             this.id=id;
@@ -26,6 +26,7 @@ public class Resident extends Utilisateur {
             this.Mdp=Mdp;
             this.Email=Email;
             this.Adresse=Adresse;
+            this.Telephone=Telephone;
 	        
         }
 
@@ -61,7 +62,7 @@ public class Resident extends Utilisateur {
         return Adresse;
     } 
 
-    public int getTelephone() {
+    public String getTelephone() {
         return Telephone;
     } 
     
@@ -73,9 +74,7 @@ public class Resident extends Utilisateur {
     }
     
 
-    public void setTelephone(int Telephone) {
-        this.Telephone = Telephone;
-    }
+    
 
         
         

@@ -4,9 +4,9 @@ import java.util.ArrayList; // import the ArrayList class
 class  prototype {
   public static void main(String[] args) {
     
-    ResidentTab.add(new Resident (1,"nom","prenom1","aa","aa","truc"));
-    ResidentTab.add(new Resident (2,"nom","prenom2","bb","bb","truc"));
-    ResidentTab.add(new Resident (3,"nom","prenom3","cc","cc","truc"));
+    ResidentTab.add(new Resident (1,"nom","prenom1","5141234567","aa","aa","truc"));
+    ResidentTab.add(new Resident (2,"nom","prenom2","5141234567","bb","bb","truc"));
+    ResidentTab.add(new Resident (3,"nom","prenom3","5141234567","cc","cc","truc"));
     updatUserTab();
     mainMenu(); 
     
@@ -21,13 +21,13 @@ class  prototype {
   static ArrayList<Resident> ResidentTab = new ArrayList<>();
   
 
-
+  //menu principale
   public static void mainMenu() {
     
     System.out.println("MAIN MENU ");
     System.out.println("1-Connexion");
     System.out.println("2-S'inscrire Comme resident");
-    System.out.println("2-S'inscrire Comme Consomateur");
+    System.out.println("3-S'inscrire Comme Consomateur");
 
 
     System.out.println("\nEnter le numero corespondant a longlet que vous voulais visiter "); 
@@ -109,13 +109,13 @@ class  prototype {
   //menu quand un consomateur est connecte
   public static void MenuConsomateur(Consomateur ActualUser) {
     
-    System.out.println("Menu Consomateur de l'utilisateur"+ActualUser.getNom());
+    System.out.println("Menu Consomateur de l'utilisateur "+ActualUser.getNom());
     System.out.println("0-Revenir au menus principale");
     System.out.println("1-Notifier les résidents");
     
     
     System.out.println("\nEnter le numero corespondant a longlet que vous voulais visiter ");
-
+    GestionsMenuConssomateur(ActualUser);
   }
 
 //---------------------------------------------------------------------------
@@ -192,8 +192,8 @@ public static void Etatbacs(Resident ActualResident) {
   for (int i = 0; i < listIdBac.size(); i++) {
     //recupere le bac correspondant
     Bac residentBac=Municip.IndexBac(listIdBac.get(i));
-    System.out.println("Le Bac n° "+listIdBac.get(i)+" de type : "+ residentBac.gettype()+" est remplie a "+residentBac.getremplissage()+"%");
-
+    System.out.println("Le Bac n° "+listIdBac.get(i)+" de type "+ residentBac.gettype()+" est remplie a "+residentBac.getremplissage()+"%");
+    MenuResident(ActualResident);
     }
     
 }
@@ -219,9 +219,10 @@ public static void SignalerProblEme(Resident ActualResident) {
   Municip.postMessage(message);
   GestionsMenuResident(ActualResident);
 }
+//fonction qui oriente et effectu la recherche de consomateur 
 public static void Trouverconsomateur(Resident ActualResident) {
   System.out.println("Pour noter un consomateur il faut le chercher par son nom exact");
-  System.out.println("0-retour menu Resident");
+  System.out.println("0-Retour menu Resident");
   System.out.println("1-Chercher pas nom");
   System.out.println("2-Chercher par type");
   System.out.println("\nEnter le numero corespondant a longlet que vous voulais visiter ");
@@ -246,7 +247,7 @@ public static void Trouverconsomateur(Resident ActualResident) {
     }
     //si on trouve un nom sois on renvois au menu soit on note le consomateur
     else{
-      System.out.println("Le consomateur"+ConsTrouver.getNom()+"a ete trouver");
+      System.out.println("Le consomateur "+ConsTrouver.getNom()+" a ete trouver");
       System.out.println("0-retour menu Resident");
       System.out.println("1-Noter le consomateur");
       System.out.println("\nEnter le numero corespondant a longlet que vous voulais visiter ");
@@ -255,6 +256,7 @@ public static void Trouverconsomateur(Resident ActualResident) {
         mainMenu(); 
     
       }
+      //noter un conssomateur
       else if(newinput==1){
         System.out.println("entrer une note");
         int note= getInputInt();
@@ -274,7 +276,7 @@ public static void Trouverconsomateur(Resident ActualResident) {
     System.out.println("Les Consomateur qui traite "+type+" sont les suivant:");
     ArrayList<Consomateur> tabConsFiltrer =Municip.chercherParType(type);
     for (int i = 0; i < tabConsFiltrer.size(); i++) {
-      System.out.println("Consomateur:"+tabConsFiltrer.get(i).getNom());
+      System.out.println(" -Consomateur:"+tabConsFiltrer.get(i).getNom());
     }
     if (tabConsFiltrer.size()==0){
       System.out.println("Aucun Consomateur corespond");
@@ -440,6 +442,11 @@ public static void Trouverconsomateur(Resident ActualResident) {
       
     System.out.println("Enter Votre mot de passe ");
     String userMdp = getInputString(); 
+
+//rentre Telephone
+
+System.out.println("Enter Votre numero de Telephone ");
+String Telephone = getInputString();
 //rentre l'Email 
 
     System.out.println("Enter Votre Email ");
@@ -457,7 +464,7 @@ int code = getInputInt();
 
 
 //ajoute l'utilisateur a une liste d'utilisateur en attandant que leur compte soit valider
-attenteUser.add(new Resident (code,userNom,userPrenom,userMdp,userEmail,userAdresse));
+attenteUser.add(new Resident (code,userNom,userPrenom,Telephone,userMdp,userEmail,userAdresse));
   updatUserTab();
   }
 
@@ -488,7 +495,7 @@ public static void NewConsomateur() {
       int Telephone = getInputInt();
 
       //rentre activiter
-      System.out.println("Enter votre numero de activiter");
+      System.out.println("Enter votre activiter");
       String activiter = getInputString();
 
 
