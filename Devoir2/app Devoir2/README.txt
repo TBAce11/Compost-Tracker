@@ -6,7 +6,7 @@ Menu principale
     On a le choix entre  3 "connexion","S'inscrire Comme resident" et "S'inscrire comme Consommateur", action à laquelle on peut accéder en tapant les numéros correspondants. 
 
 Si on tape 1 on accede "Connexion" dans lequel on nous demande votre email puis un mot de passe si un utilisateur correspond. Vous serrez connectés au menu approprié 
-selon votre statut ( Menu Consommateur ou menu resident)
+selon votre statut ( Menu Consommateur ou menu resident).
 
 Si on tape 2 on accede "S'inscrire Comme resident" on vous demande les informations suivantes:
 -Nom
@@ -53,7 +53,7 @@ Si on tape 1 on accède à "Enregistrer un bac"
         -Adresse
         -la Date d'emission
         -Enter le type du bac
-    Ensuite le bac a été ajouté et enregistré
+    Ensuite le bac a été ajouté et enregistré.
 
 Si on tape 2 on accède à "Afficher l'état des mes bacs"
     Affiche pour chaque bac son type, son id et son remplisage
@@ -66,9 +66,9 @@ Si on tape 4 on accède à "Voir l'état de traitement des déchets municipaux"
         -Statut
         -les consomateurs qui rentrent dans le processus
 Si on tape 5 on accède à "Signaler un problème à MunicipInfo":
-    vous demande de rentrer un message qui sera transmis
+    vous demande de rentrer un message qui sera transmis.
 Si on tape 6 on accede "Trouver un consommateur"
-    un nouveau menu s'affiche avec 3 options
+    un nouveau menu s'affiche avec 3 options:
         Si on tape 0 on accède à "Retour menu Resident"
             Retourne au menu de resident
         Si on tape 1 on accède à "Chercher pas nom"
