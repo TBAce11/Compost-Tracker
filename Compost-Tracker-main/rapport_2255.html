@@ -479,7 +479,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item__link" href="#analysis">Conception</a>
+                        <a class="nav-item__link" href="#conception">Conception</a>
                         <ul class="bare-list nav-item-details">
                             <li class="dash">Diagramme de classe</li>
                             <li class="dash">Diagramme de séquence</li>
@@ -912,7 +912,7 @@
                 <div>
                     <h3 class="subsection-title">Propositions</h3>
                     <p>
-                      <li>Métriques choisies : masse, taux de contamination, taux de diversion (ville) /masse + trois métriques du score écolo(résident)</li>
+                      <li>Métriques choisies : masse, taux de contamination, facteur PN, facteur PNU et EcoScore</li>
                       <br/>
                       La masse est une métrique optimale lorsque l’on compare l’impact qu’elle a par rapport à son coût et sa faisabilité. Il s’agit du cumul de toute la matière comprise dans le cycle du traitement des déchets qui révèle aux utilisateurs de Bineco l’ampleur de l’opération à laquelle ils sont entrain d’adhérer, ce qui peut en soit convaincre les plus sceptiques à se joindre aux efforts de la population de soutien de ces actions écologiques ou bien quantifier le potentiel de recyclage d’une ville. La calibration d’un simple appareil installé dans chacun des bacs enregistrés a l’air d’être la solution idéale pour ce but.
                       <br /><br />
@@ -920,7 +920,15 @@
                       <br /><br />
                       Le taux de diversion sépare les matières résiduelles en deux catégories : celles vouées à être acheminées à un site d’enfouissement et celles qui auront une deuxième vie. Ce ratio témoigne de la prouesse ou non de la population à réduire son empreinte écologique en minimisant le plus possible la quantité de déchets non recyclables et non compostables. Tout comme la masse, le taux de diversion peut être pris en charge dès le début du cycle grâce au calcul soumis par l’appareil placés dans les trois types de bacs en question, offrant un excellent rapport impact/coût.
                       <br /><br />
+                      Le facteur PN est un ratio entre les impacts positifs et négatifs des déchets. Les impacts positifs sont les matières recyclables et combustables, alors que les matières orduriaires ont un impact négatif sur le facteur.  Il se calcule grâce à la formule : FPN = (PNr + PNc) / (PNo + 1)  = (Nr x Pr + Nc x Pc) / (No x Po + 1).
+                      <br /><br />
+                      Le facteur PNU est similaire au facteur PN mais spécifique à l'usager. Cette réduction s'effectue grâce à une fonction logarithmique. 
+                      <br /><br />
+                      L'Ecoloscore est un rapport entre notre PNU et le PNU idéal. Cela donne ainsi une note sur l'efficacité écologique de nos démarches. 
+                      <br /><br />
             </section>
+
+            
 
             <section class="main-section">
                 <h2 id="prototype" class="section-title">Prototype</h2>
@@ -1030,6 +1038,9 @@
 
                 </div>
             </em>
+
+            <section class="main-section">
+                <h2  id="conception" class="section-title">Conception</h2>
             <div>
                 <h3 class="subsection-title">Modèle dynamique : Diagrammes d'activités</h3>
                 <p>Nous avons Elaboré un diagramme d'activité principal et des diagrammes d'activités secondaires pour expliquer l'utilisation de Bineco. </p>
@@ -1071,6 +1082,32 @@
 
 
 
+
+
+            </div>
+            </section>
+
+            <div>
+                <h3 class="subsection-title">Diagrammes de séquence</h3>
+                <h4>Afficher l'état d'un bac</h4>
+                <a class="use-case-link" href="VPP/Diagramme de séquence1.vpp">
+                    <img class="use-case-img" src="images/diagséquence1.png" alt="">
+                </a><br>
+                <h4>Demander un nouveau bac à MunicipInfo </h4>
+                
+                <a class="use-case-link" href="VPP/Diagramme de séquence1.vpp">
+                    <img class="use-case-img" src="images/diagséquence2.png" alt="">
+                </a>
+                
+                <h5>Trouver un consommateur et noter une activité</h5>
+                <a class="use-case-link" href="VPP/Diagramme de séquence1.vpp">
+                    <img class="use-case-img" src="images/diagséquence3.png" alt="">
+                </a>
+                <h5>Notifier les résidents d'un besoin de plastique</h5>
+                <a class="use-case-link" href="VPP/Diagramme de séquence1.vpp">
+                    <img class="use-case-img" src="images/diagséquence4.png" alt="">
+                </a>
+    
 
 
             </div>
