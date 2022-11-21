@@ -57,7 +57,10 @@ Si on tape 1 on accède à "Enregistrer un bac"
 
 Si on tape 2 on accède à "Afficher l'état des mes bacs"
     Affiche pour chaque bac son type, son id et son remplisage
+    
 Si on tape 3 on accède à "Métriques"
+    On vous demande d'entrer plusieur parametre pour parametriser vos metrique puis les afficher 
+
 Si on tape 4 on accède à "Voir l'état de traitement des déchets municipaux"
     pour chaque lots de dechet en traitment on affiche:
         -le Numero
@@ -65,8 +68,10 @@ Si on tape 4 on accède à "Voir l'état de traitement des déchets municipaux"
         -Date de passage des camions
         -Statut
         -les consomateurs qui rentrent dans le processus
+        
 Si on tape 5 on accède à "Signaler un problème à MunicipInfo":
     vous demande de rentrer un message qui sera transmis.
+    
 Si on tape 6 on accede "Trouver un consommateur"
     un nouveau menu s'affiche avec 3 options:
         Si on tape 0 on accède à "Retour menu Resident"
