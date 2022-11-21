@@ -1,5 +1,6 @@
 import java.util.Scanner; // import the Scanner class 
-import java.util.ArrayList; // import the ArrayList class
+import java.util.ArrayList; // import the ArrayList clas
+import java.lang.Math;
 
 class  prototype {
   public static void main(String[] args) {
@@ -200,6 +201,35 @@ public static void Etatbacs(Resident ActualResident) {
 
 public static void Métriques(Resident ActualResident) {
   
+
+System.out.println("Enter le Niveau de remplissage du bac de recyclage ");
+int Nr = getInputInt();
+ 
+
+System.out.println("Enter le Niveau de remplissage du bac de compostage ");
+int Nc = getInputInt();
+
+
+System.out.println("Enter le Niveau de remplissage du bac des ordures ");
+int No = getInputInt();
+
+System.out.println("Enter le Poids du recyclage ");
+int Pr = getInputInt();
+
+System.out.println("Enter le  Poids du compostage ");
+int Pc = getInputInt();
+
+System.out.println("Enter le Poids des ordures ");
+int Po = getInputInt();
+
+System.out.println("  Masse= "+ MetriqueMasseTotal( Pr, Pc, Po));
+System.out.println("  Facteur PN = "+ FacteurPN( Nr, Pr, Nc, Pc, No, Po));
+System.out.println("  Facteur PNU ="+ FacteurPNU( Nr, Pr, Nc, Pc, No, Po));
+System.out.println("  Score ECOLO = "+ Score( Nr, Pr, Nc, Pc, No, Po));
+System.out.println("taux de contamination = "+ tauxContamination( Pr, Pc, Po));
+System.out.println("taux de diversion = "+tauxDiversion( Pr));
+MenuResident(ActualResident);
+  
 }
 public static void EtatTraitement(Resident ActualResident) {
   System.out.println("L'état de traitement des déchets municipaux\n");
@@ -214,6 +244,9 @@ public static void EtatTraitement(Resident ActualResident) {
     }
   
 }
+
+
+
 public static void SignalerProblEme(Resident ActualResident) {
   String message=getInputString();
   Municip.postMessage(message);
@@ -457,7 +490,7 @@ String Telephone = getInputString();
 System.out.println("Enter Votre Adresse ");
 String userAdresse = getInputString(); 
 
-//rentre l'adresse 
+//rentre id 
 
 System.out.println("Enter Le code unique fourni par la municipaliter ");
 int code = getInputInt();
@@ -518,6 +551,147 @@ public static void NewConsomateur() {
     updatUserTab();
     }
 
+//----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
+//les metrique
+public static int MetriqueMasseTotal(int Pr,int Pc,int Po) {
+  return Pr+Pc+Po;
+}
+public static int tauxContamination(int Pr,int Pc,int Po) {
+  return Pr/(Pc+Po)*100;
+}
+public static int tauxDiversion(int Pr) {
+  //poids qui a reussi a etre recycler arbitraire (70%)
+  int poidRecycler= Pr*(70*100);
+  return poidRecycler/Pr*100;
+}
+public static int FacteurPN(int Nr,int Pr,int Nc,int Pc,int No,int Po) {
+  return ((PNr(Nr,Pr) + PNc(Nc,Pc))/(PNo(No,Po) + 1));
+}
+
+public static Double FacteurPNU(int Nr,int Pr,int Nc,int Pc,int No,int Po) {
+  //reste les table
+  Usagerecyclables.clear();
+  UsageCompostables.clear();
+  //AJOUTE DE Usage relatif des déchets
+  //ER1
+  Usagerecyclables.add(80);
+  Usagerecyclables.add(70);
+  //EC1
+  UsageCompostables.add(60);
+  UsageCompostables.add(90);
+  ///AJOUTE DE Proportions bac
+  //NR
+  ProportionRecyclage.add(80);
+  ProportionRecyclage.add(70);
+  //NC
+  ProportionCompostage.add(60);
+  ProportionCompostage.add(90);
+  
+
+  int UR=0;
+  int UC=0;
+  for (int i = 0; i < UsageCompostables.size(); i++) {
+    //recupere le bac correspondant
+    UR+=ProportionRecyclage.get(i)*Usagerecyclables.get(i);
+    UC+=ProportionCompostage.get(i)*UsageCompostables.get(i);
+  }
+  UR=UR/getMax(UsageCompostables);
+  UC=UC/getMax(UsageCompostables);
+
+    
+
+
+  return (Math.log(PNr(Nr,Pr) * UR + PNc(Nc,Pc) * UC + 1) / ((PNo(No,Po) + 1)));
+
+}
+
+public static Double Score(int Nr,int Pr,int Nc,int Pc,int No,int Po){
+  return FacteurPN( Nr, Pr, Nc, Pc, No, Po)/FacteurPNUIdeal( Nr, Pr, Nc, Pc, No, Po);
+}
+
+
+//facteur
+public static int PNr(int Nr,int Pr) {
+  return Nr*Pr;
+}
+public static int PNc(int Nc,int Pc) {
+  return Nc*Pc;
+}
+public static int PNo(int No,int Po) {
+  return No*Po;
+}
+
+//Usage relatif des déchets
+static ArrayList<Integer> Usagerecyclables = new ArrayList<>();
+
+static ArrayList<Integer> UsageCompostables = new ArrayList<>();
+
+//Proportions bac
+static ArrayList<Integer> ProportionRecyclage = new ArrayList<>();
+
+static ArrayList<Integer> ProportionCompostage = new ArrayList<>();
+
+
+public static int getMax(ArrayList<Integer> tab) {
+  int max=0;
+  for (int i = 0; i < tab.size(); i++) {
+    //recupere le bac correspondant
+    int value=tab.get(i);
+    if (max<value){
+      max=value;
+    }
+    
+
+  }
+  return max;
+}
+  public static Double FacteurPNUIdeal(int Nr,int Pr,int Nc,int Pc,int No,int Po) {
+    //reste les table
+    Usagerecyclables.clear();
+    UsageCompostables.clear();
+    //AJOUTE DE Usage relatif des déchets
+    //ER1
+    Usagerecyclables.add(80);
+    Usagerecyclables.add(70);
+    //EC1
+    UsageCompostables.add(60);
+    UsageCompostables.add(90);
+    ///AJOUTE DE Proportions bac
+    //NR
+    ProportionRecyclage.add(80);
+    ProportionRecyclage.add(70);
+    //NC
+    ProportionCompostage.add(60);
+    ProportionCompostage.add(90);
+    Nr = 100;
+    Nc = 100;
+    No = 0;
+  
+    int UR=0;
+    int UC=0;
+    for (int i = 0; i < UsageCompostables.size(); i++) {
+      //recupere le bac correspondant
+      UR+=ProportionRecyclage.get(i)*Usagerecyclables.get(i);
+      UC+=ProportionCompostage.get(i)*UsageCompostables.get(i);
+    }
+    UR=UR/getMax(UsageCompostables);
+    UC=UC/getMax(UsageCompostables);
+  
+      
+  
+  
+    return (Math.log(PNr(Nr,Pr) * UR + PNc(Nc,Pc) * UC + 1) / ((PNo(No,Po) + 1)));
+  
+  }
+
+
+
 
 
 }
+
+
+
+
+
