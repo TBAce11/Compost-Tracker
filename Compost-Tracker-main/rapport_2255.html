@@ -893,6 +893,11 @@
                     <p>
                       <li>Mécanisme d’inventorisation du contenu des bacs : permettra l’étude de l’historique d’utilisation et la collecte de données des bacs concernés.</li>
                       <li>Codes QR d’identification des bacs : associeront sur l’application les bacs enregistrés à leur responsable.</li>
+                      <li>Capteurs intelligents: scanneront le contenu des bacs ainsi que d'autres données dont la masse, volume, usage, etc.</li>
+                      <li>Serveurs informatiques: hébergement des données traitées et programmes de calcul et déploiement de celles-ci.</li>
+                      <li>Téléphone cellulaire: interface cible de la projection de l'application Bineco au grand public.</li>
+                      <li>API municipale: extension virtuelle de la ville vouée à l'automatisation du catalogage des données de traitement de déchets.</li>
+                      <li>Stockage partagé: entreposage simultané des informations partagées par la ville et celles utilisées par Bineco</li>
                       <li>Information sur les résidents et consommateurs : identification et portrait adéquat des utilisateurs de Bineco à sensibiliser.</li>
                       <li>Points de contrôle du processus de traitement de déchets : moments clés de l’évolution du suivi du traitement de déchets.</li>
                       <li>Requêtes de signalisation de problèmes à la ville : communication des problèmes rencontrés par l’utilisateur par le biais de Bineco à la ville.</li>
@@ -903,7 +908,12 @@
                 <div>
                     <h3 class="subsection-title">Contraintes</h3>
                     <p>
-                    Pour les contraintes physiques, il est compréhensible que celles-ci soient moins nombreuses que les conceptuelles puisque la conception d’une application comme Bineco est plus abstraite que concrète, mais tout de même importantes à considérer. Premièrement, les spécifications sur le matériel sont les plus évidentes, soit le placement des codes QR ainsi que l’équipement dédié à la collecte de données aux points de contrôle. Un suivi ne peut être effectué sans avoir un compte précis de bacs impliqués et la qualité des données dépend en effet du standard des outils de mesure impliqués pendant le processus. Deuxièmement, les spécifications sur l’interaction entourent le contact qu’entreprend un utilisateur avec Bineco. Puisque l’information des utilisateurs se doit d’être soumise à l’application afin de garantir son succès, leur participation encadrée par la méthodologie à employer afin d’officialiser leur inscription constituent les contraintes en question. Finalement, les spécifications de la logistique dépendent évidemment de l’efficacité des intermédiaires du traitement de déchet, soit les éboueurs, collecteur de données, employés de la ville, etc. ayant une incidence directe sur la pertinence de l’information diffusée aux utilisateurs de Bineco.
+                    Pour les contraintes physiques, il est compréhensible que celles-ci soient moins nombreuses que les conceptuelles puisque la conception d’une application comme Bineco est plus abstraite que concrète, mais tout de même importantes à considérer. 
+                    Premièrement, les spécifications sur le matériel sont les plus évidentes, soit le placement des codes QR ainsi que l’équipement dédié à la collecte de données à l'intérieur du bac ainsi qu'aux points de contrôle. Parlant de bac, l'appareil clé impliqué sera un capteur dont 
+                    l'interaction avec l'application comportera plusieurs défis dont la fiabilité et connectivité. De plus, l'état de fonctionnement de la composante électronique se doit d'être vérifié régulièrement dû à l'endommagement probable que peuvent infliger les déchets entreposés au sein des bacs concernés. Un suivi aux points ne peut être effectué sans avoir un compte précis de bacs 
+                    impliqués et la qualité des données dépend en effet du standard des outils de mesure impliqués pendant le processus. Deuxièmement, les spécifications sur l’interaction entourent le contact qu’entreprend un utilisateur avec Bineco. Puisque l’information 
+                    des utilisateurs se doit d’être soumise à l’application afin de garantir son succès, leur participation encadrée par la méthodologie à employer afin d’officialiser leur inscription constituent les contraintes en question. Finalement, les spécifications 
+                    de la logistique dépendent évidemment de l’efficacité des intermédiaires du traitement de déchet, soit les éboueurs, collecteur de données, employés de la ville, etc. ayant une incidence directe sur la pertinence de l’information diffusée aux utilisateurs de Bineco.
                     <br /><br />
                     En ce qui concerne les contraintes conceptuelles, traduire un processus tangible en format numérisable adapté à tous est le principal défi que Bineco tente de résoudre. Premièrement, les besoins propres au traitement sont simples puisqu’ils concernent la nature des données enregistrées ainsi que le langage employé pour les traiter, chacun d’entre eux étant compatible avec les calculs des métriques désirées. Deuxièmement, les besoins propres à la manipulation englobent toutes les opérations effectuées sur les données composant Bineco. Il faudra bien sûr garantir l’entreposage de l’information des résidents et consommateurs, mais aussi tenir compte de la procédure de communication avec l’API de la ville cruciale pour l’extraction de données pertinentes supplémentaires. Le délai d’attente suite à la soumission d’une requête de signalisation de problème est lui aussi non négligeable puisque la vitesse d’exécution de la ville affecte l’intérêt des citoyens pour l’emploi de Bineco. Finalement, les besoins propres à la compréhension sont en quelque sorte le vide abstrait que l’application tente de combler. Les concepts abstraits tels que la « connexion » des bacs à l’outil à l’aide des codes QR ainsi que la représentation de l’état des bacs devront être implémentés sous format numérique de manière conventionnelle tandis que la formulation et simplification des métriques écologiques doivent être conçues de sorte à maximiser la compréhension des suivis et l’engagement des résidents au sein du processus global.
                     </p>
@@ -912,7 +922,7 @@
                 <div>
                     <h3 class="subsection-title">Propositions</h3>
                     <p>
-                      <li>Métriques choisies : masse, taux de contamination, facteur PN, facteur PNU et EcoScore</li>
+                      <li>Métriques choisies : masse, taux de contamination, taux de diversion (ville) / masse, facteur PN, facteur PNU et ÉcoloScore (résidents)</li>
                       <br/>
                       La masse est une métrique optimale lorsque l’on compare l’impact qu’elle a par rapport à son coût et sa faisabilité. Il s’agit du cumul de toute la matière comprise dans le cycle du traitement des déchets qui révèle aux utilisateurs de Bineco l’ampleur de l’opération à laquelle ils sont entrain d’adhérer, ce qui peut en soit convaincre les plus sceptiques à se joindre aux efforts de la population de soutien de ces actions écologiques ou bien quantifier le potentiel de recyclage d’une ville. La calibration d’un simple appareil installé dans chacun des bacs enregistrés a l’air d’être la solution idéale pour ce but.
                       <br /><br />
@@ -922,9 +932,9 @@
                       <br /><br />
                       Le facteur PN est un ratio entre les impacts positifs et négatifs des déchets. Les impacts positifs sont les matières recyclables et combustables, alors que les matières orduriaires ont un impact négatif sur le facteur.  Il se calcule grâce à la formule : FPN = (PNr + PNc) / (PNo + 1)  = (Nr x Pr + Nc x Pc) / (No x Po + 1).
                       <br /><br />
-                      Le facteur PNU est similaire au facteur PN mais spécifique à l'usager. Cette réduction s'effectue grâce à une fonction logarithmique. 
+                      Le facteur PNU est similaire au facteur PN,mais spécifique à l'usager. Cette réduction s'effectue grâce à une fonction logarithmique. 
                       <br /><br />
-                      L'Ecoloscore est un rapport entre notre PNU et le PNU idéal. Cela donne ainsi une note sur l'efficacité écologique de nos démarches. 
+                      L'ÉcoloScore est un rapport entre notre PNU et le PNU idéal. Cela donne ainsi une note sur l'efficacité écologique de nos démarches qui pourra être interprétée sans biais et confusion par les utilisateurs de Bineco grâce à une légende. 
                       <br /><br />
             </section>
 
@@ -1114,10 +1124,17 @@
                 <a class="use-case-link" href="VPP/Diagramme de séquence1.vpp">
                     <img class="use-case-img" src="images/diagséquence4.png" alt="">
                 </a>
-    
-
-
             </div>
+
+            <div>
+                <h3 class="subsection-title">Justification du design</h3>
+                <p>L'abstraction est probablement le concept de design ayant provoqué le plus de réflexion quant à la forme du programme. Les besoins étaient en effet clairement énoncés, mais il était difficile de ne pas concevoir trop de classes superflues en lien avec la gestion de certaines données pouvant implicitement être générées par des fonctions issues de classes différentes ou bien des classes ne représentant pas un objet concret réaliste. Nous avons donc misé pour une approche simple consistant à cibler les classes d’objets indispensables en premier pour ensuite graduellement engendrer la création d’autres classes jugées potentiellement utiles lors de l’appel de certaines fonctions et ce, un module à la fois de sorte à pouvoir supprimer celles jugées inutiles sans retourner en arrière. <br><br>
+                    Le couplage et la cohésion ciblaient davantage la composante « contrôleur » du modèle MVC adopté au sein du diagramme de classe. La pièce maitresse du segment se devait d’être l’API MunicipInfo dont la grande abondance de fonctions répondant aux besoins du client nous a incités à employer divers sous-contrôleurs s’occupant d’une catégorie de donnée chacun. Bien que la dépendance inévitable de Bineco à l’API provoque un couplage laissant un peu à désirer, la cohésion des classes de gestions de données se partage toutes les fonctions principales de sorte à laisser MunicipInfo se charger des processus globaux ainsi que de l’accès à certaines données partagées avec l’application. <br><br>
+                    L’encapsulation a été mise en emphase en conséquence sur la composante « modèle » du modèle MVC. Le respect de la privatisation des attributs de chacune des classes est une convention importante qui a été en effet déployée, mais l’efficacité de notre programme repose au sein de la classe de base de données où sont stockées les données de presque toutes les classes avoisinantes. En plus de garantir une meilleure cohérence de chaque instance possédant ses propres attributs et fonctions d’obtention et de modification, une centralisation des données à traiter se traduit en une simplification et meilleure réutilisation du code, provoquant indirectement une indépendance accrue de chacune des classes les autres des autres agissant comme une sorte de compensation pour le couplage faible un peu absent entre l’API et le contrôleur principal. Cette solution comporte aussi ses mérites vis-à-vis de l’abstraction puisque l’alternative nous aurait poussés à stocker les listes d’objets d’une classe dans une autre classe, rendant difficile son implémentation issue dans le concret. <br>
+                    </p>
+                <br>
+            </div>
+
             </section>
         </div>
     </main>
