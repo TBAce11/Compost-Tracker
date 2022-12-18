@@ -12,7 +12,7 @@ public class ReadResident {
 
     public static void main(String[] args) throws IOException {
        
-       System.out.println(getResidentsDatabase());
+       
     }
 
 

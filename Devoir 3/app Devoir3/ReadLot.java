@@ -12,7 +12,7 @@ public class ReadLot {
 
     public static void main(String[] args) throws IOException {
         
-        System.out.println(getLotsDatabase());
+        
     }
 
 
