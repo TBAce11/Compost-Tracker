@@ -12,7 +12,7 @@ public class ReadResident {
 
     public static void main(String[] args) throws IOException {
        
-       
+        modifResident( 1, "nouveauxMot", 1) ;
     }
 
 

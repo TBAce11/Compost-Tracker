@@ -1,6 +1,7 @@
 import java.util.Scanner; // import the Scanner class 
 import java.util.ArrayList; // import the ArrayList clas
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.Math;
 
 class  prototype {
@@ -101,6 +102,7 @@ class  prototype {
     System.out.println("4-Voir l'état de traitement des déchets municipaux");
     System.out.println("5-Signaler un problème à MunicipInfo");
     System.out.println("6-Trouver un consommateur");
+    System.out.println("7-Modifier Mon Profil");
 
     System.out.println("\nEnter le numero corespondant a longlet que vous voulais visiter ");
     GestionsMenuResident( ActualResident);
@@ -112,6 +114,7 @@ class  prototype {
     System.out.println("Menu Consomateur de l'utilisateur "+ActualUser.getNom());
     System.out.println("0-Revenir au menus principale");
     System.out.println("1-Notifier les résidents");
+    System.out.println("2-Modifier mon Profil");
     
     
     System.out.println("\nEnter le numero corespondant a longlet que vous voulais visiter ");
@@ -156,6 +159,10 @@ public static void GestionsMenuResident(Resident ActualResident) {
   //si le Resident veux Trouver un consommateur
   else if(input==6){
     Trouverconsomateur(ActualResident);
+
+  }
+ else if (input == 7) {
+    ModifProfil(ActualResident);
 
   }
   //si le Resident rentre un mauvais input
@@ -333,6 +340,47 @@ public static void Trouverconsomateur(Resident ActualResident) {
 
  
 }
+public static void ModifProfil(Resident ActualResident) {
+  System.out.println("Pour modifier votre compte suivez les instructions.");
+  System.out.println("1-Pour modifier votre compte");
+  System.out.println("2-Pour retourner au menu principal");
+  int newinput = getInputInt();
+  if (newinput == 1) {
+    int id = ActualResident.getid();
+    System.out.println("Enter votre nom");
+    String nom = getInputString();
+    System.out.println("Entrer votre prenom");
+    String prenom = getInputString();
+    System.out.println("Enter votre adresse");
+    String adresse = getInputString();
+    System.out.println("Enter votre numéro de téléphone");
+    String telephone = getInputString();
+    System.out.println("Enter votre mot de passe");
+    String Mdp = getInputString();
+    System.out.println("Enter votre adresse mail");
+    String mail = getInputString();
+
+    try {
+      ReadResident.modifResident(id, nom, 1);
+      ReadResident.modifResident(id, prenom, 2);
+      ReadResident.modifResident(id, telephone, 3);
+      ReadResident.modifResident(id, Mdp, 4);
+      ReadResident.modifResident(id, mail, 5);
+      ReadResident.modifResident(id, adresse, 6);
+      updatUserTab();
+    } catch (IOException exception) {
+      System.out.println("La modification n'a pas été faite");
+    }
+    MenuResident(ActualResident);
+
+  } else if (newinput == 2) {
+    mainMenu();
+  } else {
+    System.out.println("réessayer taper '0','1'ou '2' pour changer d'onglet");
+
+  }
+
+}
 
 
 //---------------------------------------------------------------------------
@@ -353,6 +401,48 @@ public static void Trouverconsomateur(Resident ActualResident) {
       System.out.println("\nEntrer le messge a transmettre");
       String message = getInputString();
       MenuConsomateur( ActualConsomateur);
+
+    } else if (input == 2) {
+      System.out.println("Pour modifier votre profil suivez les instructions.");
+      System.out.println("1-Pour modifier votre compte");
+      System.out.println("2-Pour retourner au menu principal");
+      int Input = getInputInt();
+      if (Input == 1) {
+        int id = ActualConsomateur.getid();
+        System.out.println("Enter votre nom");
+        String nom = getInputString();
+        System.out.println("Enter votre adresse");
+        String adresse = getInputString();
+        System.out.println("Enter votre mot de passe");
+        String Mdp = getInputString();
+        System.out.println("Enter votre adresse mail");
+        String mail = getInputString();
+        System.out.println("Enter votre numéro de téléphone");
+        String telephone = getInputString();
+        System.out.println("Vos activités");
+        String activite = getInputString();
+        System.out.println("Enter Type de déchet");
+        String type = getInputString();
+        System.out.println("Enter votre capacité");
+        String capacite = getInputString();
+        try {
+          ReadConsomateur.modifConsomateur(id, nom, 1);
+          ReadConsomateur.modifConsomateur(id, adresse, 2);
+          ReadConsomateur.modifConsomateur(id, Mdp, 3);
+          ReadConsomateur.modifConsomateur(id, mail, 4);
+          ReadConsomateur.modifConsomateur(id, telephone, 5);
+          ReadConsomateur.modifConsomateur(id, activite, 6);
+          ReadConsomateur.modifConsomateur(id, type, 7);
+          ReadConsomateur.modifConsomateur(id, capacite, 8);
+          updatUserTab();
+        } catch (IOException exception) {
+          System.out.println("La modification n'a pas été faite");
+        }
+        GestionsMenuConssomateur(ActualConsomateur);
+
+      } else if (Input == 2) {
+        mainMenu();
+      }
 
     }
     //si le Consomateur rentre un mauvais input
