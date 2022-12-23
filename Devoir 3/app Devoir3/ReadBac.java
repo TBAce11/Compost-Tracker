@@ -12,12 +12,11 @@ public class ReadBac {
 
     public static void main(String[] args) throws IOException {
         
-        
     }
 
 
 
-    public static ArrayList<Bac> read() throws FileNotFoundException {
+    public static ArrayList<Bac> read() throws FileNotFoundException { 
         
         ArrayList<Bac> BacTab = new ArrayList<>();
         File myObj = new File("database/Bac.txt");
