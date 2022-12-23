@@ -4,7 +4,7 @@ import java.util.ArrayList; // import the ArrayList class
 
 
 public class MunicipInfo {
-    ArrayList<Consomateur> tabConsomateur =new ArrayList<>();
+    static ArrayList<Consomateur> tabConsomateur =new ArrayList<>();
 
     public MunicipInfo () {
        
@@ -12,10 +12,10 @@ public class MunicipInfo {
     }
 
 
-    public ArrayList<Consomateur> ListConsomateur() {
+    public static ArrayList<Consomateur> ListConsomateur() {
          //ajoute les consomateur deja present
          try {
-            tabConsomateur =ReadConsomateur.getConsomateursDatabase();
+             tabConsomateur =ReadConsomateur.getConsomateursDatabase();
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -99,7 +99,7 @@ public class MunicipInfo {
         }
         return (null);
     } 
-    public Consomateur getConsommateur(int id){
+    public static Consomateur getConsommateur(int id){
         Consomateur serchConsomateur;
         
         for (int i = 0; i < tabConsomateur.size(); i++) {
