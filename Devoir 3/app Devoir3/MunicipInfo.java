@@ -56,7 +56,7 @@ public class MunicipInfo {
         try {
 			ReadBac.addBac( id, Adresse, DateEmission, type);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
     } 

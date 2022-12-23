@@ -35,6 +35,7 @@ public class ReadLot {
     }
     
 
+    
     public static ArrayList<Lot> getLotsDatabase()  {
         
         try {
