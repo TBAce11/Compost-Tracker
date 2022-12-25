@@ -1,3 +1,0 @@
-1 limbo prenom1 5141234567 aa aa truc
-2 nom prenom2 5141234567 bb bb truc
-3 nom prenom3 5141234567 cc cc truc
