@@ -5,9 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="536acef7-8e53-474e-afc7-fd4da2ef0638" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Capteur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Metriques.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Capteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/Capteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resident.java" beforeDir="false" afterPath="$PROJECT_DIR$/Resident.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestUnitair.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestUnitair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/app Devoir3/Capteur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/app Devoir3/Capteur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/app Devoir3/Consomateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/app Devoir3/Consomateur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/app Devoir3/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/app Devoir3/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/app Devoir3/ReadActivite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/app Devoir3/ReadActivite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/app Devoir3/Resident.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/app Devoir3/Resident.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/app Devoir3/TestUnitair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/app Devoir3/TestUnitair.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/app Devoir3/database/Activite.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/app Devoir3/database/Activite.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/app Devoir3/prototype.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/app Devoir3/prototype.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prototype.java" beforeDir="false" afterPath="$PROJECT_DIR$/prototype.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

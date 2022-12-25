@@ -1,28 +1,31 @@
-Fonctionnement 
+Fonctionnement du projet
 
-
-Menu principale
 --------------------------------
-    On a le choix entre  3 "Connexion","S'inscrire Comme resident" et "S'inscrire Comme Consomateur"
-action au quelle on peux accéder en tapant le numéros corespondant 
+Menu principal
 
-Si on tape 1 on accede "Connexion" dans le quelle on nous demande votre email puis 
-mot de passe si un utilisateur correspond vous serrais connecter au menus aproprier 
-selon votre statut ( Menu Consomateur ou Menu Resident)
+Tout d'abord, nous avons 3 options principales disponibles pour l'utilisateur: "Connexion",
+"S'inscrire en tant que résident" et "S'inscrire en tant que consommateur". Le choix est pris en considération en tapant
+en entrée le numéro correspondant.
 
-Si on tape 2 on accede "S'inscrire Comme resident" on vous demande les information suivante:
--Nom
--Prenom
--Mot de passe
--Numero de telephone
--Email
--Adresse
--Le code unique fourni par la municipaliter
-Votre dossier va etres ajouter a une list dutilisateur en attante de validation 
-puis vous serais rediriger vers le menu Princiapele
+Si on tape "1", on accède à "Connexion", option pour laquelle l'utilisateur doit insérer son e-mail puis mot de passe
+pour que le programme vérifie si un profil correspond existe. Si c'est le cas, il sera dirigé vers le menu du résident
+ou consommateur dépendamment de son statut.
 
+De la perspective d'un résident, si on tape "2", on accède à "S'inscrire en tant que résident" et les informations
+suivantes sont exigées:
+    -Nom
+    -Prénom
+    -Mot de passe
+    -Numéro de telephone
+    -Email
+    -Adresse
+    -Code unique fourni par la municipalité
 
-Si on tape 2 on accede "S'inscrire Comme Consomateur" on vous demande les information suivante:
+Le dossier de l'utilisateur sera ensuite ajouté à une liste d'utilisateurs en attente de validation, puis il sera
+redirigé vers le menu principal.
+
+De la perspective d'un consommateur, si on tape "2", on accède à "S'inscrire en tant que consommateur" et les
+informations suivantes sont exigées:
 -Nom
 -Adresse
 -Mot de passe
@@ -31,37 +34,35 @@ Si on tape 2 on accede "S'inscrire Comme Consomateur" on vous demande les inform
 -Activiter
 -Capaciter de traitment
 -Le code unique fourni par la municipaliter
-Votre dossier va etres ajouter a une list dutilisateur en attante de validation 
-puis vous serais rediriger vers le menu Princiapele
------------------------------
-Menu Consomateur
 
-On a le choix entre  2 "Revenir au menus principale" et "Notifier les résidents"
-action au quelle on peux accéder en tapant le numéros corespondant 
-
-Si on tape 0 on accede "Revenir au menus principale" on revient au menu principale
-
-Si on tape 1 on accede "Notifier les résidents" on rentre a message pour quil soit envoyer au resident
+Le dossier de l'utilisateur sera ensuite ajouté à une liste d'utilisateurs en attente de validation, puis il sera
+redirigé vers le menu principal.
 
 -----------------------------
+Menu du consomateur
 
-Menu Resident
-le menu  resident ofre les 7 action suivante
+On a le choix entre 2 actions étant "Revenir au menu principal" et "Notifier les résidents" auxquelles nous pouvons
+accéder en tapant le numéro corespondant. Si on tape "0", l'utilisateur revient au menu principal et si on tape "1",
+un message est demandé en entrée afin qu'il soit envoyé aux résident en guise de notification.
 
-Si on tape 0 on accede "Revenir au menus principale":
-    Revient au Menu principale
-    
-Si on tape 1 on accede "Enregistrer un bac"
-    on vous demande les information suivante:
-        -code qr
+-----------------------------
+Menu du résident
+
+Le menu du résident offre les 7 actions suivantes:
+
+    -Si on tape "0", on accède au menu principal
+    -Si on tape "1" on accède à l'option "Enregistrer un bac" où l'on demande les informations suivantes:
+        -Code qr
         -Adresse
-        -la Date d'emission
-        -Enter le type du bac
-    Ensuite le bac a ete ajouter est enregistrer
+        -Date d'émission
+        -Le type du bac
+    Le bac est ensuite ajouté puis enregistré à la liste.
 
-Si on tape 2 on accede "Afficher l'état des mes bacs"
-    Affiche pour chaque bac sont type son id et sont remplisage
-Si on tape 3 on accede "Métriques"
+    -Si on tape "2", on accède à "Afficher l'état des mes bacs" affichant le type, l'ID et le niveau de remplissage de
+    chaque bac possédé par le résident.
+
+    -Si on tape "3", on accède à la section "Métriques" où toute la base de données du contenu des bacs du résident est
+    pré-calculées
 Si on tape 4 on accede "Voir l'état de traitement des déchets municipaux"
     pour chaque lots de dechet en traitment on afiche:
         -le Numero
