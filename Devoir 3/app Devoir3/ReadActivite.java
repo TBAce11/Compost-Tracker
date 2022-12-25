@@ -1,3 +1,5 @@
+
+
 import java.util.Scanner; // import the Scanner class 
 import java.util.ArrayList; // import the ArrayList clas
 import java.io.File;  // Import the File class
@@ -5,7 +7,6 @@ import java.io.FileNotFoundException;  // Import this class to handle errors
 
 import java.io.FileWriter;
 import java.io.IOException;
-
 
 public class ReadActivite {
     
@@ -53,7 +54,7 @@ public class ReadActivite {
         while (myReader.hasNextLine()) {
             String ligne = myReader.nextLine();
             String[] myArray = ligne.split(" ");
-            if(nom == (myArray[0])){
+            if(nom.equals(myArray[0])){
                 myArray[index]=mot;
             }
 

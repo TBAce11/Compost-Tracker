@@ -467,7 +467,7 @@ public static void ModifProfil(Resident ActualResident) {
           int note = getInputInt();
           try {
             ReadActivite.modifActivite(nom, Integer.toString(note), 2);
-  
+            updatUserTab();
           } catch (IOException exception) {
             System.out.println("L'activité n'a pas été notée");
           }
