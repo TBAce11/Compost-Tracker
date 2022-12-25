@@ -46,14 +46,15 @@ On a le choix entre 5 actions suivantes:
      -Si on tape "1",on vous demande dentrer un message a transmetre et vous vevener au Menu du consomateur
      -Si on tape "2",vous demande de rentré le nom,une adresse,un mot de passe,un mail, une activités,
             un type de déchet et une capacité et modifie l'utilisateur
-     -Si on tape "3",
+     -Si on tape "3", on peut rajouter une activité. On demande un nom et un type de déchet, l'activité est ensuite attribué
+      la note de 0 par défaut. 
      -Si on tape "4",vous demande de rentré le nom de l'activite a supprimer 
      
 
 -----------------------------
 Menu du résident
 
-Le menu du résident offre les 7 actions suivantes:
+Le menu du résident offre les 8 actions suivantes:
 
     -Si on tape "0", on accède au menu principal
     -Si on tape "1" on accède à l'option "Enregistrer un bac" où l'on demande les informations suivantes:
@@ -88,6 +89,9 @@ Le menu du résident offre les 7 actions suivantes:
        -     -Soit taper "1" pour donner une note
         Si on tape "2", on accède à "Chercher par type" qui affiche une liste des noms de consommateurs traitant un
         type spécifique de déchet
-
+    -Si on tape "7", on peut modifier son profil. On nous demande le nom, prenom, adresse, numero de telephone, mot de passe
+       et email. 
+    -Si on tape "8", on peut noter une activité. On nous demande le nom d'une activité puis une note à lui attribuer. 
+    On retourne ensuite au menu résident. 
 
 
