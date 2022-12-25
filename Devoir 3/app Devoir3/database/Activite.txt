@@ -1,2 +1,2 @@
-boop biip 10
-poop 6 5
+nom1 typeDechet 6
+nom2 typeDechet 5

@@ -113,6 +113,7 @@ class prototype {
     System.out.println("1-Notifier les résidents");
     System.out.println("2-Modifier mon Profil");
     System.out.println("3-Ajouter une activité");
+    System.out.println("4-Supprimer une activité");
 
     System.out.println("\nEnter le numero corespondant a longlet que vous voulais visiter ");
     GestionsMenuConssomateur(ActualUser);
@@ -365,7 +366,7 @@ class prototype {
   public static void ModifProfil(Resident ActualResident) {
     System.out.println("Pour modifier votre compte suivez les instructions.");
     System.out.println("1-Pour modifier votre compte");
-    System.out.println("2-Pour retourner au menu principal");
+    System.out.println("2-Pour retourner au menu Resident");
     int newinput = getInputInt();
     if (newinput == 1) {
       int id = ActualResident.getid();
@@ -396,10 +397,10 @@ class prototype {
       MenuResident(ActualResident);
 
     } else if (newinput == 2) {
-      mainMenu();
+      MenuResident(ActualResident);
     } else {
-      System.out.println("réessayer taper '0','1'ou '2' pour changer d'onglet");
-
+      System.out.println("réessayer taper '1'ou '2' pour changer d'onglet");
+      ModifProfil( ActualResident);
     }
 
   }
@@ -425,7 +426,7 @@ class prototype {
     } else if (input == 2) {
       System.out.println("Pour modifier votre profil suivez les instructions.");
       System.out.println("1-Pour modifier votre compte");
-      System.out.println("2-Pour retourner au menu principal");
+      System.out.println("2-Pour retourner au menu Consomateur");
       int Input = getInputInt();
       if (Input == 1) {
         int id = ActualConsomateur.getid();
@@ -458,9 +459,9 @@ class prototype {
         } catch (IOException exception) {
           System.out.println("La modification n'a pas été faite");
         }
-        GestionsMenuConssomateur(ActualConsomateur);
+        MenuConsomateur(ActualConsomateur);
       } else if (Input == 2) {
-        mainMenu();
+        MenuConsomateur(ActualConsomateur);;
       }
 
     } else if (input == 3) {
@@ -474,6 +475,12 @@ class prototype {
       } catch (IOException exception) {
         System.out.println("L'activité n'a pas été crée");
       }
+      MenuConsomateur( ActualConsomateur);
+    } else if (input == 4){
+      System.out.println("\nLe nom de l'activiter que vous voulez suprimer");
+      String nom=getInputString();
+      ReadActivite.suppActivite(nom);
+      MenuConsomateur( ActualConsomateur);
     }
 
     // si le Consomateur rentre un mauvais input

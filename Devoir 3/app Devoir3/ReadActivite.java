@@ -89,4 +89,28 @@ public class ReadActivite {
         myWriter.close();
         
     } 
+    public static void suppActivite(String nom)  {
+       
+
+        File myObj = new File("database/Activite.txt");
+        try (Scanner myReader = new Scanner(myObj)) {
+            String text="";
+            while (myReader.hasNextLine()) {
+                String ligne = myReader.nextLine();
+                String[] myArray = ligne.split(" ");
+                if(nom.compareTo(myArray[0])==0){
+                    
+                }else{text=text+myArray[0]+" "+myArray[1]+" "+myArray[2]+"\n";}
+                
+            }
+            FileWriter myWriter = new FileWriter("database/Activite.txt");
+            myWriter.write(text);
+            myReader.close();
+            myWriter.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+    }  
 }
