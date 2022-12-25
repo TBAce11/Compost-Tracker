@@ -17,6 +17,10 @@ public class ReadLot {
 
 
 
+    /**Fonction pour lire le fichier Lot
+     * @return
+     * @throws FileNotFoundException
+     */
     public static ArrayList<Lot> read() throws FileNotFoundException {
         
         ArrayList<Lot> LotTab = new ArrayList<>();
@@ -51,6 +55,13 @@ public class ReadLot {
     // modifie les indormation de lutilisateur qui a pour numero "id"
     //"index" corespond a quelle parrametre on veux modifier index 0= id 1=nom...
     //et "mot" contient le mot que on va placer a la place du mot que on va remplacer
+
+    /**Fonction pour modifier les propriétés d'un lot
+     * @param id
+     * @param mot
+     * @param index
+     * @throws IOException
+     */
     public static void modifLot(int id,String mot,int index) throws IOException {
        
 
@@ -77,6 +88,15 @@ public class ReadLot {
 
     //ajoute les info dun Lot dans la database
     
+    /**Fonction pour rajouter un lot à la database des lots. 
+     * @param id
+     * @param type
+     * @param dateRamassage
+     * @param dateLivraison
+     * @param activites
+     * @param ConsomateurId
+     * @throws IOException
+     */
     public static void addLot (int id,String type,String dateRamassage,String dateLivraison, String activites,Integer ConsomateurId) throws IOException {
         File myObj = new File("database/Lot.txt");
         Scanner myReader = new Scanner(myObj);

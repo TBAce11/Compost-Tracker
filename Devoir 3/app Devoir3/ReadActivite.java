@@ -17,6 +17,10 @@ public class ReadActivite {
 
 
 
+    /**Fonction pour lire le fichier database Activite
+     * @return
+     * @throws FileNotFoundException
+     */
     public static ArrayList<Activite> read() throws FileNotFoundException {
         
         ArrayList<Activite> activiteTab = new ArrayList<>();
@@ -44,6 +48,13 @@ public class ReadActivite {
     // modifie les indormation de lactivite qui a pour nom "nom"
     //"index" corespond a quelle parrametre on veux modifier index 0= id 1=nom...
     //et "mot" contient le mot que on va placer a la place du mot que on va remplacer
+   
+    /**Fonction pour modifier les propriétés d'une activité
+     * @param nom
+     * @param mot
+     * @param index
+     * @throws IOException
+     */
     public static void modifActivite(String nom,String mot,int index) throws IOException {
        
 
@@ -70,6 +81,12 @@ public class ReadActivite {
 
     //ajoute les info dune activite dans la database
     
+    /**Fonction pour rajouter une activité à la database. 
+     * @param nom
+     * @param typeDechet
+     * @param note
+     * @throws IOException
+     */
     public static void addActivite(String nom, String typeDechet, int note) throws IOException {
         File myObj = new File("database/Activite.txt");
         Scanner myReader = new Scanner(myObj);
@@ -89,6 +106,10 @@ public class ReadActivite {
         myWriter.close();
         
     } 
+
+    /**Fonction pour supprimer une activité de la database.
+     * @param nom
+     */
     public static void suppActivite(String nom)  {
        
 

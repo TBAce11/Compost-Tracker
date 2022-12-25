@@ -16,6 +16,10 @@ public class ReadConsomateur {
 
 
 
+    /**Fonction qui le fichier data Consomateur.txt et en fait un tableau
+     * @return Tableau de consommateurs
+     * @throws FileNotFoundException
+     */
     public static ArrayList<Consomateur> read() throws FileNotFoundException {
         
         ArrayList<Consomateur> ConsomateurTab = new ArrayList<>();
@@ -43,6 +47,13 @@ public class ReadConsomateur {
     // modifie les indormation de lutilisateur qui a pour numero "id"
     //"index" corespond a quelle parrametre on veux modifier index 0= id 1=nom...
     //et "mot" contient le mot que on va placer a la place du mot que on va remplacer
+
+    /**Fonction pour modifier les propriétés d'un consommateur.
+     * @param id
+     * @param mot
+     * @param index
+     * @throws IOException
+     */
     public static void modifConsomateur(int id,String mot,int index) throws IOException {
        
 
@@ -69,6 +80,18 @@ public class ReadConsomateur {
 
     //ajoute les info dun Consomateur dans la database
     
+    /**Fonction pour rajouter un consommateur à la database. 
+     * @param id
+     * @param Nom
+     * @param Adresse
+     * @param Mdp
+     * @param Email
+     * @param Telephone
+     * @param activites
+     * @param TypeDechet
+     * @param capacite
+     * @throws IOException
+     */
     public static void addConsomateur(int id,String Nom,String Adresse,String Mdp,String Email,String Telephone,Activite activites,String TypeDechet,String capacite) throws IOException {
         File myObj = new File("database/Consomateur.txt");
         Scanner myReader = new Scanner(myObj);

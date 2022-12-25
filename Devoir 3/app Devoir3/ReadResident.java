@@ -17,6 +17,10 @@ public class ReadResident {
 
 
 
+    /**Fonction pour lire le fichier database des résidents. 
+     * @return
+     * @throws FileNotFoundException
+     */
     public static ArrayList<Resident> read() throws FileNotFoundException {
         
         ArrayList<Resident> ResidentTab = new ArrayList<>();
@@ -50,6 +54,13 @@ public class ReadResident {
     // modifie les indormation de lutilisateur qui a pour numero "id"
     //"index" corespond a quelle parrametre on veux modifier index 0= id 1=nom 2 =prenom 3=telephone 4=Mdp 5=email 6=adresse
     //et "mot" contient le mot que on va placer a la place du mot que on va remplacer
+
+    /**Fonction pour modifier les propriétés d'un résident. 
+     * @param id
+     * @param mot
+     * @param index
+     * @throws IOException
+     */
     public static void modifResident(int id,String mot,int index) throws IOException {
        
 
@@ -76,6 +87,16 @@ public class ReadResident {
 
     //ajoute les info dun resident dans la database
     
+    /**Fonction pour rajouter un résident à la database des résidents. 
+     * @param id
+     * @param Nom
+     * @param Prenom
+     * @param Telephone
+     * @param Mdp
+     * @param Email
+     * @param Adresse
+     * @throws IOException
+     */
     public void addResident(int id,String Nom,String Prenom,String Telephone,String Mdp,String Email,String Adresse) throws IOException {
         File myObj = new File("database/Resident.txt");
         Scanner myReader = new Scanner(myObj);
