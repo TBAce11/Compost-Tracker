@@ -115,6 +115,8 @@ class  prototype {
     System.out.println("0-Revenir au menus principale");
     System.out.println("1-Notifier les résidents");
     System.out.println("2-Modifier mon Profil");
+    System.out.println("3-Ajouter une activité");
+    System.out.println("4-Noter une activité");
     
     
     System.out.println("\nEnter le numero corespondant a longlet que vous voulais visiter ");
@@ -439,12 +441,40 @@ public static void ModifProfil(Resident ActualResident) {
           System.out.println("La modification n'a pas été faite");
         }
         GestionsMenuConssomateur(ActualConsomateur);
-
-      } else if (Input == 2) {
-        mainMenu();
       }
+        else if(Input == 2) {
+          mainMenu();
+        }
+        
+      } 
+      else if (input == 3) {
+        System.out.println("Entrer le nom de l'activité");
+        String nom = getInputString();
+        System.out.println("Entrer le type de déchet");
+        String typeDechet = getInputString();
+        try {
+          ReadActivite.addActivite(nom, typeDechet, 0);
 
-    }
+        } catch (IOException exception) {
+          System.out.println("L'activité n'a pas été crée");
+        }
+      }
+        
+      else if (input == 4) {
+          System.out.println("Entrer l'activité que vous voulez noter");
+          String nom = getInputString();
+          System.out.println("Entrer une note");
+          int note = getInputInt();
+          try {
+            ReadActivite.modifActivite(nom, Integer.toString(note), 2);
+  
+          } catch (IOException exception) {
+            System.out.println("L'activité n'a pas été notée");
+          }
+          
+        }
+
+    
     //si le Consomateur rentre un mauvais input
     else{
       System.out.println("réessayer taper '0' ou '1' pour changer d'onglet");

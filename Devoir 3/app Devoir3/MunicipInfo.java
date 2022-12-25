@@ -31,7 +31,7 @@ public class MunicipInfo {
         String Mdp=newCons.getMdp();
         String Email=newCons.getEmail();
         String Telephone=newCons.getTelephone();
-        String activites=newCons.getActivites();
+        Activite activites=newCons.getActivites();
         String TypeDechet=newCons.getTypeDeche();
         String capacite=newCons.getCapacite();
         try {

@@ -69,7 +69,7 @@ public class ReadConsomateur {
 
     //ajoute les info dun Consomateur dans la database
     
-    public static void addConsomateur(int id,String Nom,String Adresse,String Mdp,String Email,String Telephone,String activites,String TypeDechet,String capacite) throws IOException {
+    public static void addConsomateur(int id,String Nom,String Adresse,String Mdp,String Email,String Telephone,Activite activites,String TypeDechet,String capacite) throws IOException {
         File myObj = new File("database/Consomateur.txt");
         Scanner myReader = new Scanner(myObj);
         
