@@ -2,7 +2,7 @@ import java.util.ArrayList; // import the ArrayList class
 
 public class Consomateur extends Utilisateur {
         ArrayList<String> TypeDechet = new ArrayList<String>(); 
-        ArrayList<Integer> tabNote = new ArrayList<Integer>(); 
+        static ArrayList<Integer> tabNote = new ArrayList<Integer>(); 
         ArrayList<Activite> tabActivites= new ArrayList<Activite>(); 
         protected int note ;
         
@@ -63,11 +63,7 @@ public class Consomateur extends Utilisateur {
         }
 
 
-        public void noterActivite(String nom, int note){
-            if (this.activites.getNom() == nom){
-            this.activites.setNote(note);
-            }
-        }
+
     //--------- getters
 
    
