@@ -42,24 +42,7 @@ public class Resident extends Utilisateur {
 
         
 
-        public void noteActivite(String nom, int note) throws IOException{
-
-            ArrayList<Activite> activites = ReadActivite.getActiviteDatabase();
-
-            for (Activite activite : activites){
-                
-                
-                if (activite.getNom()==nom){
-
-                  
-                  activite.setNote(note);
-                  ReadActivite.modifActivite(nom, Integer.toString(note), 2);
-                }
-                
-                
-            } 
-
-        }   
+        
         
 
 

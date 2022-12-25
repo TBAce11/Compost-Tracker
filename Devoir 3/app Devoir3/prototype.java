@@ -175,24 +175,29 @@ class prototype {
   // methode des action de resident
   public static void noterActivite(Resident ActualResident){
 
-  System.out.println("Entrer l'activité que vous voulez noter");
-  String nom = getInputString();
-  System.out.println("Entrer une note");
-  int note = getInputInt();
-  try {
-    ArrayList<Activite> activites = ReadActivite.getActiviteDatabase();
-   for (Activite activite : activites) 
-   {
-      if (activite.getNom()==nom){
-        ActualResident.noteActivite(nom, note);
+    System.out.println("Entrer l'activité que vous voulez noter");
+    String nom = getInputString();
+    System.out.println("Entrer une note");
+    String note = getInputString();
+    try {
+      ArrayList<Activite> activites = ReadActivite.getActiviteDatabase();
+     for (Activite activite : activites) 
+     {
+        if (activite.getNom().compareTo(nom)==0){
+          ReadActivite.modifActivite( nom, note, 2);
+        }
+      updatUserTab();
       }
-    updatUserTab();
     }
+     catch (IOException exception) {
+      System.out.println("L'activité n'a pas été notée");
+    }
+    MenuResident(ActualResident);
   }
-   catch (IOException exception) {
-    System.out.println("L'activité n'a pas été notée");
-  }
-}
+
+
+
+
 
 
   public static void EnregistrerBac(Resident ActualResident) {
