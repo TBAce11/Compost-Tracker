@@ -41,9 +41,14 @@ redirigé vers le menu principal.
 -----------------------------
 Menu du consomateur
 
-On a le choix entre 2 actions étant "Revenir au menu principal" et "Notifier les résidents" auxquelles nous pouvons
-accéder en tapant le numéro corespondant. Si on tape "0", l'utilisateur revient au menu principal et si on tape "1",
-un message est demandé en entrée afin qu'il soit envoyé aux résident en guise de notification.
+On a le choix entre 5 actions suivantes:
+     -Si on tape "0", on accède au menu principal
+     -Si on tape "1",on vous demande dentrer un message a transmetre et vous vevener au Menu du consomateur
+     -Si on tape "2",vous demande de rentré le nom,une adresse,un mot de passe,un mail, une activités,
+            un type de déchet et une capacité et modifie l'utilisateur
+     -Si on tape "3",
+     -Si on tape "4",vous demande de rentré le nom de l'activite a supprimer 
+     
 
 -----------------------------
 Menu du résident
