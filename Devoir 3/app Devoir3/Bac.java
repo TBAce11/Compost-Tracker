@@ -9,6 +9,12 @@ public class Bac {
     private int CapMax=100;
     private int CapActuelle=0;
 
+    /**Constructeur pour un bac de recyclage. 
+     * @param id
+     * @param Adresse
+     * @param DateEmission
+     * @param type
+     */
     public Bac (int id,String Adresse,String DateEmission,String type) {
         this.id=id;
         this.Adresse=Adresse;
@@ -18,6 +24,9 @@ public class Bac {
         
     }
     //quand on ajoute des ellement dans un bac
+    /**Méthode pour remplir un bac
+     * @param ajout
+     */
     public void remplire(int ajout) {
         CapActuelle+=ajout;
     } 

@@ -17,6 +17,17 @@ public class Consomateur extends Utilisateur {
         
         
         
+        /**Constructeur pour un consommateur.
+         * @param id
+         * @param Nom
+         * @param Adresse
+         * @param Mdp
+         * @param Email
+         * @param Telephone
+         * @param activite
+         * @param TypeDechet
+         * @param capacite
+         */
         public Consomateur (int id,String Nom,String Adresse,String Mdp,String Email,String Telephone,String activite,String TypeDechet,String capacite) {
             this.id=id;
             this.Nom=Nom;
@@ -31,6 +42,9 @@ public class Consomateur extends Utilisateur {
         }
 
     //------------------- Methode
+        /**Méthode pour attribuer une nouvelle note à un consommateur.
+         * @param noteU
+         */
         public void newNote (int noteU){
             int totalNote =0;
 
@@ -42,6 +56,9 @@ public class Consomateur extends Utilisateur {
             this.note= totalNote/tabNote.size();
         }
 
+        /**Méthode pour rajouter un nouveau type de déchet.
+         * @param type
+         */
         public void newTypeDechet (String type){
             TypeDechet.add(type);
         }
@@ -57,6 +74,10 @@ public class Consomateur extends Utilisateur {
         
 
        
+        /**Méthode pour créer une activité 
+         * @param typeDechet
+         * @param note
+         */
         public void newActivite ( String typeDechet, int note){
             Activite nouvelleActivite = new Activite(activite,typeDechet,note);
             tabActivites.add(nouvelleActivite);

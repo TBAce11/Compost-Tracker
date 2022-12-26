@@ -16,6 +16,14 @@ public class Lot {
     ArrayList <Integer> TabConsomateursId = new ArrayList<Integer>();
     String activites;
 
+    /**Constructeur pour un lot de déchets.
+     * @param id
+     * @param type
+     * @param dateRamassage
+     * @param dateLivraison
+     * @param activites
+     * @param ConsomateurId
+     */
     public Lot (int id,String type,String dateRamassage,String dateLivraison, String activites,Integer ConsomateurId) {  
         
         
