@@ -1,43 +1,40 @@
-
-
+/**
+ * @author
+ */
 public class Utilisateur {
-    
     protected int id;
-    protected String Nom ;
-    protected String Mdp ;
-    protected String Email  ;
-        
-        
-        
-        
-        public Utilisateur () {}
+    protected String Nom;
+    protected String Mdp;
+    protected String Email;
+
+    /**
+     * Contructeur vide d'Utilisateur servant de parent à Resident et Consomateur
+     */
+    public Utilisateur() {
+    }
 
     //------------------- Methode
-    
+
 
     //--------- getters
-    
-    
+
     public int getid() {
         return id;
-    } 
+    }
+
     public String getNom() {
         return Nom;
-    } 
+    }
+
     public String getMdp() {
         return Mdp;
-    } 
+    }
+
     public String getEmail() {
         return Email;
-    } 
+    }
 
-   
     //--------- setters
-    
-        
-        
-      
 
-       
-       
+
 }

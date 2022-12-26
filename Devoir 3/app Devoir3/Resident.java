@@ -9,6 +9,20 @@ public class Resident extends Utilisateur {
     protected String Telephone;
     protected Metriques Metriques;
 
+    /**
+     * Contructeur du Resident où les métriques ne sont pas paramétrisées, mais bien générées automatiquement aussitôt
+     * que le résident est créé
+     * @param id
+     * @param Nom
+     * @param Prenom
+     * @param Telephone
+     * @param Mdp
+     * @param Email
+     * @param Adresse
+     *
+     * @return Resident
+     *      Retourne une instance de Resident
+     */
     public Resident(int id, String Nom, String Prenom, String Telephone, String Mdp, String Email, String Adresse) {
         this.id = id;
         this.Nom = Nom;
@@ -22,7 +36,10 @@ public class Resident extends Utilisateur {
 
     //------------------- Methode
 
-    //ajouter bac
+    /**
+     * Ajout d'un bac au sein de la collection du résident à partir de son ID
+     * @param Bid
+     */
     public void newBac(int Bid) {
         Bacid.add(Bid);
     }

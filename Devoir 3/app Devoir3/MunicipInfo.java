@@ -1,21 +1,23 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList; // import the ArrayList class
-
+import java.util.ArrayList;
 
 public class MunicipInfo {
-    static ArrayList<Consomateur> tabConsomateur =new ArrayList<>();
+    static ArrayList<Consomateur> tabConsomateur = new ArrayList<>();
 
-    public MunicipInfo () {
-       
-         
-    }
+    /**
+     * Contructeur vide de MunicipInfo
+     */
+    public MunicipInfo () {}
 
-
+    /**
+     * Ajoute les consommateurs présents sur la base de donnée Consomateur.txt dans un tableau
+     * @return tabConsomateur
+     *      Tableau de consommateurs inscrits
+     */
     public static ArrayList<Consomateur> ListConsomateur() {
-         //ajoute les consomateur deja present
          try {
-             tabConsomateur =ReadConsomateur.getConsomateursDatabase();
+             tabConsomateur = ReadConsomateur.getConsomateursDatabase();
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -23,6 +25,12 @@ public class MunicipInfo {
         return tabConsomateur;
     } 
     //quand on valide linscription dun consomateur on ajoute ces donner a la database
+
+    /**
+     *Lorsqu'on valide l'inscription d'un consommateur, on ajoute ses informations à la base de donnée Consomateur.txt
+     * @param newCons
+     *      Instance de Consomateur passée en paramètre
+     */
     public void valideConsomateur(Consomateur newCons) {
         tabConsomateur.add(newCons);
         int id=newCons.getid();
@@ -40,11 +48,15 @@ public class MunicipInfo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    } 
+    }
 
-    //liste de tout les bac
-    ArrayList<Bac> Bac = ReadBac.getBacsDatabase(); 
-    //ajoute un bac a la liste des bac
+    ArrayList<Bac> Bac = ReadBac.getBacsDatabase(); //liste de tous les bacs enregistrés
+
+    /**
+     * Ajoute le bac à la liste des bacs enregistrés
+     * @param newBac
+     *      Instance de Bac passée en paramètre
+     */
     public void addBac(Bac newBac) {
         Bac.add(newBac);
         int id=newBac.getid();
@@ -61,7 +73,13 @@ public class MunicipInfo {
 		}
     } 
 
-    //chercher bac avec id
+    /**
+     * Recherche de bac avec ID
+     * @param SerchId
+     *      ID du bac à chercher
+     * @return serchBac
+     *      Bac correspondant à l'ID lancé en paramètre
+     */
     public Bac IndexBac(int SerchId){
         for (int i = 0; i < Bac.size(); i++) {
             Bac serchBac=Bac.get(i);
@@ -72,7 +90,14 @@ public class MunicipInfo {
         }
         return (null);
     } 
-    //Chercher par Type un consomateur
+
+    /**
+     * Recherche de consomateurs prenant en charge un type de déchets précis
+     * @param type
+     *      Type de déchet utilisé comme correspondance
+     * @return filtreConsomateurs
+     *      Liste de consomateurs filtrée par la correspondance par type
+     */
     public ArrayList<Consomateur> chercherParType(String type){
         Consomateur serchConsomateur;
         ArrayList<Consomateur> filtreConsomateurs = new ArrayList<Consomateur>(); 
@@ -86,7 +111,13 @@ public class MunicipInfo {
         return (filtreConsomateurs);
     } 
 
-    //Chercher par nom
+    /**
+     * Recherche d'un consomateur à partir d'un nom passé en paramètre
+     * @param nom
+     *      Nom du consomateur recherché
+     * @return serchConsomateur
+     *      Consomateur trouvé par correspondance de nom
+     */
     public Consomateur chercherParNom(String nom){
         Consomateur serchConsomateur;
         
@@ -98,7 +129,8 @@ public class MunicipInfo {
             
         }
         return (null);
-    } 
+    }
+
     public static Consomateur getConsommateur(int id){
         Consomateur serchConsomateur;
         
@@ -110,22 +142,32 @@ public class MunicipInfo {
             
         }
         return (null);
-    } 
-    public void postMessage(String message) {
-        System.out.println("Message envoyer");
     }
 
+    public void postMessage(String message) {
+        System.out.println("Message envoyé.");
+    }
 
-
-  
-    //liste des lots
-    private ArrayList<Lot> lotList= new ArrayList<Lot>();
+    private ArrayList<Lot> lotList = new ArrayList<Lot>(); //liste des lots
     //ajoute les lots 
-    
+
+    /**
+     * Ajout des lots au sein de la base de données
+     * @return ReadLot.getLotsDatabase()
+     *
+     */
     public ArrayList<Lot> listLot() {
         //ajoute les lots 
         return ReadLot.getLotsDatabase();
     }
+
+    /**
+     * Recherche de lot par correspondance d'ID
+     * @param idsearch
+     *      ID de recherche
+     * @return serchLot
+     *      Résultat de la recherche de lot
+     */
     public Lot getLot(int idsearch) {
         for (int i = 0; i < lotList.size(); i++) {
             Lot serchLot=lotList.get(i);
@@ -137,7 +179,10 @@ public class MunicipInfo {
         return (null);
     }
 
-
+    /**
+     * Affichage des détails du lot en traitement en paramètre
+     * @param lotTraitment
+     */
     public void ConsomateurLot(Lot lotTraitment) {
 
         System.out.println("Le lot n° "+lotTraitment.getid()+" qui trait les dechet de type "+ lotTraitment.gettype());
@@ -151,8 +196,6 @@ public class MunicipInfo {
             int idCons=listIdCons.get(i);
             Consomateur cons =getConsommateur(idCons);
             System.out.println("        Le Consommateur "+cons.getNom()+" qui a pour activité "+cons.getActivites());
-            
-        
             }
     }
 }

@@ -86,7 +86,7 @@ Le menu du résident offre les 8 actions suivantes:
         -Si on tape "1", on accède à "Chercher par nom" procédant à la recherche d'un consommateur dont le nom est
         affiché seulement si nous avons une correspondance. Un autre menu s'affiche ensuite où l'on peut:
             -Soit taper "0" pour revenir au menu du résident
-       -     -Soit taper "1" pour donner une note
+            -Soit taper "1" pour donner une note
         Si on tape "2", on accède à "Chercher par type" qui affiche une liste des noms de consommateurs traitant un
         type spécifique de déchet
     -Si on tape "7", on peut modifier son profil. On nous demande le nom, prenom, adresse, numero de telephone, mot de passe
