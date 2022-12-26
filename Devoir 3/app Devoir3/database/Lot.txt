@@ -1,2 +1,5 @@
-1 Plastique 18/12/2022 22/12/2022 activites 10
-2 Composte 01/12/2022 12/12/2022 activites 12
+1 Plastique 18/12/2022 22/12/2022 Recyclage 12
+2 Organique 01/12/2022 20/12/2022 Compost 17
+3 Plastique 11/11/2022 31/12/2022 Recyclage 11
+4 Organique 02/12/2022 26/12/2022 Compost 15
+5 Menager 22/10/2022 28/12/2022 Poubelle 11
