@@ -6,6 +6,11 @@ import java.io.IOException;
 import java.lang.Math;
 
 class prototype {
+
+  /**Main class Bineco
+   * @param args
+   * @throws FileNotFoundException
+   */
   public static void main(String[] args) throws FileNotFoundException {
 
     ResidentTab = ReadResident.getResidentsDatabase();
@@ -24,6 +29,9 @@ class prototype {
   static ArrayList<Resident> ResidentTab = new ArrayList<>();
 
   // menu principale
+  /**Fonction qui revient au menu principal.
+   * 
+   */
   public static void mainMenu() {
 
     System.out.println("MAIN MENU ");
@@ -46,6 +54,9 @@ class prototype {
   }
 
   // changer dongler au menu
+  /**Menu principal lors de l'ouverture de l'application
+   * 
+   */
   public static void GestionmMainmenu() {
     int menu1 = getInputInt();
     // si on s'inscrie
@@ -88,6 +99,9 @@ class prototype {
   // ------------------------------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   // menu quand un resident est connecte
+  /**Menu du résident avec 8 inputs différents. 
+   * @param ActualResident
+   */
   public static void MenuResident(Resident ActualResident) {
 
     System.out.println("Menu Resident de l'utilisateur" + ActualResident.getNom());
@@ -107,6 +121,9 @@ class prototype {
   }
 
   // menu quand un consomateur est connecte
+  /**Menu du consommateur avec 4 inputs différents. 
+   * @param ActualUser
+   */
   public static void MenuConsomateur(Consomateur ActualUser) {
 
     System.out.println("Menu Consomateur de l'utilisateur " + ActualUser.getNom());
@@ -124,6 +141,9 @@ class prototype {
   // ---------------------------------------------------------------------------
   // methode des menu de resident
 
+  /**Méthode pour receuillir l'input et rediriger vers la méthode correspondante.
+   * @param ActualResident
+   */
   public static void GestionsMenuResident(Resident ActualResident) {
     int input = getInputInt();
     // si le Resident veux revenir au menus principale
@@ -175,6 +195,9 @@ class prototype {
   }
 
   // methode des action de resident
+  /**Méthode pour noter une activité.
+   * @param ActualResident
+   */
   public static void noterActivite(Resident ActualResident){
 
     System.out.println("Entrer l'activité que vous voulez noter");
@@ -202,6 +225,9 @@ class prototype {
 
 
 
+  /**Méthode pour enregistrer un bac.
+   * @param ActualResident
+   */
   public static void EnregistrerBac(Resident ActualResident) {
     // rentre id
     System.out.println("Enter le code fourni par le code qr ");
@@ -223,6 +249,9 @@ class prototype {
     MenuResident(ActualResident);
   }
 
+  /**Méthode pour vérifier l'état de ses bacs.
+   * @param ActualResident
+   */
   public static void Etatbacs(Resident ActualResident) {
     // recupere la list des id des bac du resident
     ArrayList<Integer> listIdBac = ActualResident.getBacId();
@@ -236,6 +265,9 @@ class prototype {
 
   }
 
+  /**Méthode qui permet d'afficher les métriques.
+   * @param ActualResident
+   */
   public static void Metriques(Resident ActualResident) {
     final DecimalFormat df = new DecimalFormat("#.##");
 
@@ -254,6 +286,9 @@ class prototype {
     MenuResident(ActualResident);
   }
 
+  /**Méthode qui permet d'afficher l'état de traitement de ses déchets selon le numéro de lot.
+   * @param ActualResident
+   */
   public static void EtatTraitement(Resident ActualResident) {
     System.out.println("L'état de traitement des déchets municipaux");
 
@@ -277,6 +312,9 @@ class prototype {
 
   }
 
+  /**Méthode qui permet de signaler un problème à travers MunicipInfo.
+   * @param ActualResident
+   */
   public static void SignalerProblEme(Resident ActualResident) {
     String message = getInputString();
     Municip.postMessage(message);
@@ -284,6 +322,9 @@ class prototype {
   }
 
   // fonction qui oriente et effectu la recherche de consomateur
+  /**Méthode afin de trouver un consommateur, par nom ou par type de déchet traité.
+   * @param ActualResident
+   */
   public static void Trouverconsomateur(Resident ActualResident) {
     System.out.println("Pour noter un consomateur il faut le chercher par son nom exact");
     System.out.println("0-Retour menu Resident");
@@ -352,6 +393,9 @@ class prototype {
 
   }
 
+  /**Méthode afin de modifier son profil résident.
+   * @param ActualResident
+   */
   public static void ModifProfil(Resident ActualResident) {
     System.out.println("Pour modifier votre compte suivez les instructions.");
     System.out.println("1-Pour modifier votre compte");
@@ -398,6 +442,9 @@ class prototype {
   // ---------------------------------------------------------------------------
   // methode le menu de consomateur
 
+  /**Méthode qui permet de rediriger vers les différentes options du menu consommateur.
+   * @param ActualConsomateur
+   */
   public static void GestionsMenuConssomateur(Consomateur ActualConsomateur) {
     int input = getInputInt();
     // si leConsomateur veux revenir au menus principale
@@ -480,6 +527,10 @@ class prototype {
   }
 
   // methode des action de consomateur
+  /**Méthode pour ajouter un type de déchet à son profil. 
+   * @param ActualUser
+   * @param type
+   */
   public static void ajouterType(Consomateur ActualUser, String type) {
 
     ActualUser.newTypeDechet(type);
@@ -490,6 +541,9 @@ class prototype {
   // ---------------------------------------------------------------------------
 
   // conexxion recupere les input
+  /**Menu de connexion qui vérifie si on est inscrit ou non. 
+   * @return
+   */
   public static Utilisateur MenuConnexion() {
     int id = Connexion();
     Utilisateur connecte = null;
@@ -505,6 +559,9 @@ class prototype {
   }
 
   // conexxion recupere les input
+  /**Méthode de receuil d'inputs pour la connexion. 
+   * @return
+   */
   public static int Connexion() {
     System.out.println("CONNEXION");
     System.out.println("Email: ");
@@ -538,6 +595,10 @@ class prototype {
 
   }
 
+  /**Méthode pour rechercher un utilisateur grace à son identifiant. 
+   * @param id
+   * @return
+   */
   public static Utilisateur getUserByID(int id) {
     // code to be execut
     Utilisateur userVerif;
@@ -556,6 +617,9 @@ class prototype {
   }
 
   // fonction qui cree un input string
+  /**Méthode qui récupère les inputs de forme string.
+   * @return
+   */
   public static String getInputString() {
     // code to be executed
     Scanner scan = new Scanner(System.in);
@@ -566,6 +630,9 @@ class prototype {
   }
 
   // fonction qui cree un input Int
+  /**Méthode qui récupère les inputs de forme int.
+   * @return
+   */
   public static int getInputInt() {
     // code to be executed
     Scanner scan = new Scanner(System.in);
@@ -576,6 +643,9 @@ class prototype {
   }
 
   // ajoute un residant a la liste d'utilisateur en attente
+  /**Méthode qui rajoute un résident nouvellement inscrit à la liste d'attente
+   * en attendant la validation de son compte.
+   */
   public static void NewResident() {
 
     // rentre le nom
@@ -619,6 +689,10 @@ class prototype {
   }
 
   // ajoute un conssomateur a la liste d'utilisateur en attente
+  /**Méthode qui rajoute un consommateur nouvellement inscrit à la liste d'attente
+   * en attendant la validation de son compte.
+   * 
+   */
   public static void NewConsomateur() {
 
     // rentre le nom
