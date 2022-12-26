@@ -62,7 +62,7 @@ public class Consomateur extends Utilisateur {
         public void newTypeDechet (String type){
             TypeDechet.add(type);
         }
-        public Boolean CercherParType (String type){
+        public Boolean ChercherParType (String type){
             for (int i = 0; i < TypeDechet.size(); i++) {
                 if (TypeDechet.get(i).compareTo(type)==0){
                     return true;
@@ -89,7 +89,7 @@ public class Consomateur extends Utilisateur {
 
    
     
-    public String getTypeDeche() {
+    public String getTypeDechet() {
         return TypeDechet.get(0);
     } 
     public String getAdresse() {
@@ -106,10 +106,6 @@ public class Consomateur extends Utilisateur {
         return capacite;
     } 
 
-    
-    
-    
-   
     //--------- setters
     
     public void setNom(String Nom) {
@@ -125,7 +121,5 @@ public class Consomateur extends Utilisateur {
         this.activite = activites.getNom();
       
     }
-       
-      
 }
 

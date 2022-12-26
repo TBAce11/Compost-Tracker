@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class MunicipInfo {
     static ArrayList<Consomateur> tabConsomateur = new ArrayList<>();
+    ArrayList<Bac> Bac = ReadBac.getBacsDatabase(); //liste de tous les bacs enregistrés
+    private ArrayList<Lot> lotList = new ArrayList<Lot>(); //liste des lots
 
     /**
      * Contructeur vide de MunicipInfo
@@ -40,7 +42,7 @@ public class MunicipInfo {
         String Email=newCons.getEmail();
         String Telephone=newCons.getTelephone();
         Activite activites=newCons.getActivites();
-        String TypeDechet=newCons.getTypeDeche();
+        String TypeDechet=newCons.getTypeDechet();
         String capacite=newCons.getCapacite();
         try {
 			ReadConsomateur.addConsomateur( id, Nom, Adresse, Mdp, Email, Telephone, activites, TypeDechet, capacite);
@@ -49,8 +51,6 @@ public class MunicipInfo {
 			e.printStackTrace();
 		}
     }
-
-    ArrayList<Bac> Bac = ReadBac.getBacsDatabase(); //liste de tous les bacs enregistrés
 
     /**
      * Ajoute le bac à la liste des bacs enregistrés
@@ -75,18 +75,17 @@ public class MunicipInfo {
 
     /**
      * Recherche de bac avec ID
-     * @param SerchId
+     * @param SearchId
      *      ID du bac à chercher
-     * @return serchBac
+     * @return searchBac
      *      Bac correspondant à l'ID lancé en paramètre
      */
-    public Bac IndexBac(int SerchId){
+    public Bac IndexBac(int SearchId){
         for (int i = 0; i < Bac.size(); i++) {
-            Bac serchBac=Bac.get(i);
-            if (SerchId==serchBac.getid()){
-                return serchBac;
+            Bac searchBac=Bac.get(i);
+            if (SearchId==searchBac.getid()){
+                return searchBac;
             }
-            
         }
         return (null);
     } 
@@ -103,7 +102,7 @@ public class MunicipInfo {
         ArrayList<Consomateur> filtreConsomateurs = new ArrayList<Consomateur>(); 
         for (int i = 0; i < tabConsomateur.size(); i++) {
             serchConsomateur=tabConsomateur.get(i);
-            if (serchConsomateur.CercherParType (type)){
+            if (serchConsomateur.ChercherParType (type)){
                 filtreConsomateurs.add(serchConsomateur);
             }
             
@@ -148,9 +147,6 @@ public class MunicipInfo {
         System.out.println("Message envoyé.");
     }
 
-    private ArrayList<Lot> lotList = new ArrayList<Lot>(); //liste des lots
-    //ajoute les lots 
-
     /**
      * Ajout des lots au sein de la base de données
      * @return ReadLot.getLotsDatabase()
@@ -163,16 +159,16 @@ public class MunicipInfo {
 
     /**
      * Recherche de lot par correspondance d'ID
-     * @param idsearch
+     * @param idSearch
      *      ID de recherche
-     * @return serchLot
+     * @return searchLot
      *      Résultat de la recherche de lot
      */
-    public Lot getLot(int idsearch) {
+    public Lot getLot(int idSearch) {
         for (int i = 0; i < lotList.size(); i++) {
-            Lot serchLot=lotList.get(i);
-            if (serchLot.getid()==idsearch){
-                return (serchLot);
+            Lot searchLot=lotList.get(i);
+            if (searchLot.getid()==idSearch){
+                return (searchLot);
             }
             
         }
@@ -181,16 +177,16 @@ public class MunicipInfo {
 
     /**
      * Affichage des détails du lot en traitement en paramètre
-     * @param lotTraitment
+     * @param lotTraitement
      */
-    public void ConsomateurLot(Lot lotTraitment) {
+    public void ConsomateurLot(Lot lotTraitement) {
 
-        System.out.println("Le lot n° "+lotTraitment.getid()+" qui trait les dechet de type "+ lotTraitment.gettype());
-        System.out.println("    Date de passage des camions: "+lotTraitment.getDateRamassage());
-        System.out.println("    Livraison des déchets : "+lotTraitment.getDateRamassage());
-        System.out.println("    Staut (état des déchets): "+lotTraitment.getStatut());
+        System.out.println("Le lot n° "+lotTraitement.getid()+" qui trait les dechet de type "+ lotTraitement.gettype());
+        System.out.println("    Date de passage des camions: "+lotTraitement.getDateRamassage());
+        System.out.println("    Livraison des déchets : "+lotTraitement.getDateRamassage());
+        System.out.println("    Staut (état des déchets): "+lotTraitement.getStatut());
         System.out.println("    Les dechet seront livrais par le/les consomateur suivant:");
-        ArrayList <Integer> listIdCons=lotTraitment.tabLotCons();    
+        ArrayList <Integer> listIdCons=lotTraitement.tabLotCons();    
         for (int i = 0; i < listIdCons.size(); i++) {
             //recupere le bac correspondant
             int idCons=listIdCons.get(i);

@@ -14,8 +14,6 @@ public class ReadConsomateur {
         
     }
 
-
-
     /**Fonction qui le fichier data Consomateur.txt et en fait un tableau
      * @return Tableau de consommateurs
      * @throws FileNotFoundException

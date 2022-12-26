@@ -1,6 +1,4 @@
-
-
-import java.util.Scanner; // import the Scanner class 
+import java.util.Scanner; // import the Scanner class
 import java.util.ArrayList; // import the ArrayList clas
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
@@ -9,20 +7,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class ReadActivite {
-    
-
     public static void main(String[] args) throws IOException {
         
     }
-
-
 
     /**Fonction pour lire le fichier database Activite
      * @return
      * @throws FileNotFoundException
      */
     public static ArrayList<Activite> read() throws FileNotFoundException {
-        
         ArrayList<Activite> activiteTab = new ArrayList<>();
         File myObj = new File("database/Activite.txt");
         Scanner myReader = new Scanner(myObj);
@@ -40,7 +33,6 @@ public class ReadActivite {
     
 
     public static ArrayList<Activite> getActiviteDatabase() throws FileNotFoundException {
-        
         return read();
     }  
    
@@ -56,8 +48,6 @@ public class ReadActivite {
      * @throws IOException
      */
     public static void modifActivite(String nom,String mot,int index) throws IOException {
-       
-
         File myObj = new File("database/Activite.txt");
         Scanner myReader = new Scanner(myObj);
         
@@ -111,8 +101,6 @@ public class ReadActivite {
      * @param nom
      */
     public static void suppActivite(String nom)  {
-       
-
         File myObj = new File("database/Activite.txt");
         try (Scanner myReader = new Scanner(myObj)) {
             String text="";

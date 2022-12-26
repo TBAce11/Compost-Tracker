@@ -26,14 +26,14 @@ redirigé vers le menu principal.
 
 De la perspective d'un consommateur, si on tape "2", on accède à "S'inscrire en tant que consommateur" et les
 informations suivantes sont exigées:
--Nom
--Adresse
--Mot de passe
--Email
--Numero de telephone
--Activiter
--Capaciter de traitment
--Le code unique fourni par la municipaliter
+    -Nom
+    -Adresse
+    -Mot de passe
+    -Email
+    -Numero de telephone
+    -Activiter
+    -Capaciter de traitment
+    -Le code unique fourni par la municipaliter
 
 Le dossier de l'utilisateur sera ensuite ajouté à une liste d'utilisateurs en attente de validation, puis il sera
 redirigé vers le menu principal.
@@ -41,14 +41,20 @@ redirigé vers le menu principal.
 -----------------------------
 Menu du consomateur
 
-On a le choix entre 2 actions étant "Revenir au menu principal" et "Notifier les résidents" auxquelles nous pouvons
-accéder en tapant le numéro corespondant. Si on tape "0", l'utilisateur revient au menu principal et si on tape "1",
-un message est demandé en entrée afin qu'il soit envoyé aux résident en guise de notification.
+On a le choix entre 5 actions suivantes:
+     -Si on tape "0", on accède au menu principal
+     -Si on tape "1",on vous demande dentrer un message a transmetre et vous vevener au Menu du consomateur
+     -Si on tape "2",vous demande de rentré le nom,une adresse,un mot de passe,un mail, une activités,
+            un type de déchet et une capacité et modifie l'utilisateur
+     -Si on tape "3", on peut rajouter une activité. On demande un nom et un type de déchet, l'activité est ensuite attribué
+      la note de 0 par défaut. 
+     -Si on tape "4",vous demande de rentré le nom de l'activite a supprimer 
+     
 
 -----------------------------
 Menu du résident
 
-Le menu du résident offre les 7 actions suivantes:
+Le menu du résident offre les 8 actions suivantes:
 
     -Si on tape "0", on accède au menu principal
     -Si on tape "1" on accède à l'option "Enregistrer un bac" où l'on demande les informations suivantes:
@@ -58,31 +64,34 @@ Le menu du résident offre les 7 actions suivantes:
         -Le type du bac
     Le bac est ensuite ajouté puis enregistré à la liste.
 
-    -Si on tape "2", on accède à "Afficher l'état des mes bacs" affichant le type, l'ID et le niveau de remplissage de
+    -Si on tape "2", on accède à "Afficher l'état de mes bacs" affichant le type, l'ID et le niveau de remplissage de
     chaque bac possédé par le résident.
 
     -Si on tape "3", on accède à la section "Métriques" où toute la base de données du contenu des bacs du résident est
-    pré-calculées
-Si on tape 4 on accede "Voir l'état de traitement des déchets municipaux"
-    pour chaque lots de dechet en traitment on afiche:
-        -le Numero
-        -le type de dechet
-        -Date de passage des camions
-        -Staut
-        -les consomateur qui rentre dans le processus
-Si on tape 5 on accede "Signaler un problème à MunicipInfo"
-    vous demande de rentrer un message qui seras transmis
-Si on tape 6 on accede "Trouver un consommateur"
-    un nouveaus menus s'affiche avec 3 options
-        Si on tape 0 on accede "Retour menu Resident"
-            Retourne au menus de resident
-        Si on tape 1 on accede "Chercher pas nom"
-            si on trouve le consomateur on afiche sont nom
-            puis un menus s'afiche 
-                -soit on tape 0 pour revenir au menu resident 
-                -soit on tape 1 pour donner une note
-        Si on tape 2 on accede "Chercher par type"
-            Afiche une list des nom des consomateur qui traite se type de dechet
+    pré-calculée pour être transformée en métriques résidentielles et personnelles propres à l'utilisateur.
 
+    -Si on tape "4", on accède à "Voir l'état de traitement des déchets municipaux" affichant pour chaque lot de dechet
+    en traitement les détails suivants:
+        -Numéro
+        -Type de déchet
+        -Date de passage des camions
+        -Statut
+        -Consommateur faisant partie du processus
+
+    -Si on tape "5", on accède à "Signaler un problème à MunicipInfo" nous demandant en message en entrée qui sera
+    transmis à la ville
+
+    -Si on tape "6", on accède à "Trouver un consommateur" accompagné d'un nouveau menu s'affichant avec 3 options:
+        -Si on tape "0", on retourne au ménu du résident
+        -Si on tape "1", on accède à "Chercher par nom" procédant à la recherche d'un consommateur dont le nom est
+        affiché seulement si nous avons une correspondance. Un autre menu s'affiche ensuite où l'on peut:
+            -Soit taper "0" pour revenir au menu du résident
+            -Soit taper "1" pour donner une note
+        Si on tape "2", on accède à "Chercher par type" qui affiche une liste des noms de consommateurs traitant un
+        type spécifique de déchet
+    -Si on tape "7", on peut modifier son profil. On nous demande le nom, prenom, adresse, numero de telephone, mot de passe
+       et email. 
+    -Si on tape "8", on peut noter une activité. On nous demande le nom d'une activité puis une note à lui attribuer. 
+    On retourne ensuite au menu résident. 
 
 

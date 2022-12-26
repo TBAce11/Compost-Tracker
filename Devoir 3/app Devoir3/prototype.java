@@ -14,7 +14,7 @@ class prototype {
   public static void main(String[] args) throws FileNotFoundException {
 
     ResidentTab = ReadResident.getResidentsDatabase();
-    updatUserTab();
+    updateUserTab();
     mainMenu();
 
   }
@@ -41,12 +41,12 @@ class prototype {
 
     System.out.println("\nEnter le numero corespondant a longlet que vous voulais visiter ");
 
-    GestionmMainmenu();
+    GestionMainMenu();
 
   }
 
   // tab qui contient tous les utilisateur resident et consomateur
-  public static void updatUserTab() {
+  public static void updateUserTab() {
     UserTab.clear();
     UserTab.addAll(ResidentTab);
     UserTab.addAll(Municip.ListConsomateur());
@@ -57,14 +57,14 @@ class prototype {
   /**Menu principal lors de l'ouverture de l'application
    * 
    */
-  public static void GestionmMainmenu() {
+  public static void GestionMainMenu() {
     int menu1 = getInputInt();
     // si on s'inscrie
     if (menu1 == 1) {
       Utilisateur ActualUser = MenuConnexion();
       if (ActualUser == null) {
         System.out.println("réessayer taper '1','2' ou '3' pour changer d'onglet");
-        GestionmMainmenu();
+        GestionMainMenu();
       } else {
         // a changer
         if (ActualUser instanceof Resident) {
@@ -91,7 +91,7 @@ class prototype {
     // si on tape un mauvais input
     else {
       System.out.println("réessayer taper '1','2' ou '3' pour changer d'onglet");
-      GestionmMainmenu();
+      GestionMainMenu();
     }
 
   }
@@ -117,7 +117,7 @@ class prototype {
     System.out.println("8-Noter une activité");
 
     System.out.println("\nEnter le numero corespondant a longlet que vous voulais visiter ");
-    GestionsMenuResident(ActualResident);
+    GestionMenuResident(ActualResident);
   }
 
   // menu quand un consomateur est connecte
@@ -134,7 +134,7 @@ class prototype {
     System.out.println("4-Supprimer une activité");
 
     System.out.println("\nEnter le numero corespondant a longlet que vous voulais visiter ");
-    GestionsMenuConssomateur(ActualUser);
+    GestionMenuConsomateur(ActualUser);
   }
 
   // ---------------------------------------------------------------------------
@@ -144,7 +144,7 @@ class prototype {
   /**Méthode pour receuillir l'input et rediriger vers la méthode correspondante.
    * @param ActualResident
    */
-  public static void GestionsMenuResident(Resident ActualResident) {
+  public static void GestionMenuResident(Resident ActualResident) {
     int input = getInputInt();
     // si le Resident veux revenir au menus principale
     if (input == 0) {
@@ -157,7 +157,7 @@ class prototype {
     }
     // si le Resident veux Afficher l'état des mes bacs
     else if (input == 2) {
-      Etatbacs(ActualResident);
+      EtatBacs(ActualResident);
 
     }
     // si le Resident veux acceder a ces Métriques
@@ -173,11 +173,11 @@ class prototype {
     // si le Resident veux Signaler un problème à MunicipInfo
     else if (input == 5) {
 
-      SignalerProblEme(ActualResident);
+      signalerProbleme(ActualResident);
     }
     // si le Resident veux Trouver un consommateur
     else if (input == 6) {
-      Trouverconsomateur(ActualResident);
+      TrouverConsomateur(ActualResident);
 
     } else if (input == 7) {
       ModifProfil(ActualResident);
@@ -190,7 +190,7 @@ class prototype {
     // si le Resident rentre un mauvais input
     else {
       System.out.println("réessayer taper '0' ou '1' pour changer d'onglet");
-      GestionsMenuResident(ActualResident);
+      GestionMenuResident(ActualResident);
     }
   }
 
@@ -211,7 +211,7 @@ class prototype {
         if (activite.getNom().compareTo(nom)==0){
           ReadActivite.modifActivite( nom, note, 2);
         }
-      updatUserTab();
+      updateUserTab();
       }
     }
      catch (IOException exception) {
@@ -252,7 +252,7 @@ class prototype {
   /**Méthode pour vérifier l'état de ses bacs.
    * @param ActualResident
    */
-  public static void Etatbacs(Resident ActualResident) {
+  public static void EtatBacs(Resident ActualResident) {
     // recupere la list des id des bac du resident
     ArrayList<Integer> listIdBac = ActualResident.getBacId();
     for (int i = 0; i < listIdBac.size(); i++) {
@@ -301,9 +301,9 @@ class prototype {
       Lot LotTraitment = ListLotTraitment.get(i);
       if (Num == LotTraitment.getid()) {
         Municip.ConsomateurLot(LotTraitment);
-        GestionsMenuResident(ActualResident);
+        GestionMenuResident(ActualResident);
       } else if (0 == LotTraitment.getid()) {
-        GestionsMenuResident(ActualResident);
+        GestionMenuResident(ActualResident);
       } else {
         EtatTraitement(ActualResident);
       }
@@ -315,17 +315,17 @@ class prototype {
   /**Méthode qui permet de signaler un problème à travers MunicipInfo.
    * @param ActualResident
    */
-  public static void SignalerProblEme(Resident ActualResident) {
+  public static void signalerProbleme(Resident ActualResident) {
     String message = getInputString();
     Municip.postMessage(message);
-    GestionsMenuResident(ActualResident);
+    GestionMenuResident(ActualResident);
   }
 
   // fonction qui oriente et effectu la recherche de consomateur
   /**Méthode afin de trouver un consommateur, par nom ou par type de déchet traité.
    * @param ActualResident
    */
-  public static void Trouverconsomateur(Resident ActualResident) {
+  public static void TrouverConsomateur(Resident ActualResident) {
     System.out.println("Pour noter un consomateur il faut le chercher par son nom exact");
     System.out.println("0-Retour menu Resident");
     System.out.println("1-Chercher pas nom");
@@ -347,7 +347,7 @@ class prototype {
       // si aucun nom ne match
       if (ConsTrouver == null) {
         System.out.println("Aucun consomateur correspondant");
-        Trouverconsomateur(ActualResident);
+        TrouverConsomateur(ActualResident);
       }
       // si on trouve un nom sois on renvois au menu soit on note le consomateur
       else {
@@ -365,7 +365,7 @@ class prototype {
           System.out.println("entrer une note");
           int note = getInputInt();
           ConsTrouver.newNote(note);
-          Trouverconsomateur(ActualResident);
+          TrouverConsomateur(ActualResident);
 
         }
       }
@@ -384,11 +384,11 @@ class prototype {
       if (tabConsFiltrer.size() == 0) {
         System.out.println("Aucun Consomateur corespond");
       }
-      Trouverconsomateur(ActualResident);
+      TrouverConsomateur(ActualResident);
 
     } else {
       System.out.println("réessayer taper '0','1'ou '2' pour changer d'onglet");
-      Trouverconsomateur(ActualResident);
+      TrouverConsomateur(ActualResident);
     }
 
   }
@@ -423,7 +423,7 @@ class prototype {
         ReadResident.modifResident(id, Mdp, 4);
         ReadResident.modifResident(id, mail, 5);
         ReadResident.modifResident(id, adresse, 6);
-        updatUserTab();
+        updateUserTab();
       } catch (IOException exception) {
         System.out.println("La modification n'a pas été faite");
       }
@@ -445,7 +445,7 @@ class prototype {
   /**Méthode qui permet de rediriger vers les différentes options du menu consommateur.
    * @param ActualConsomateur
    */
-  public static void GestionsMenuConssomateur(Consomateur ActualConsomateur) {
+  public static void GestionMenuConsomateur(Consomateur ActualConsomateur) {
     int input = getInputInt();
     // si leConsomateur veux revenir au menus principale
     if (input == 0) {
@@ -491,7 +491,7 @@ class prototype {
           ReadConsomateur.modifConsomateur(id, activite, 6);
           ReadConsomateur.modifConsomateur(id, type, 7);
           ReadConsomateur.modifConsomateur(id, capacite, 8);
-          updatUserTab();
+          updateUserTab();
         } catch (IOException exception) {
           System.out.println("La modification n'a pas été faite");
         }
@@ -522,7 +522,7 @@ class prototype {
     // si le Consomateur rentre un mauvais input
     else {
       System.out.println("réessayer taper '0' ou '1' pour changer d'onglet");
-      GestionsMenuConssomateur(ActualConsomateur);
+      GestionMenuConsomateur(ActualConsomateur);
     }
   }
 
@@ -534,7 +534,7 @@ class prototype {
   public static void ajouterType(Consomateur ActualUser, String type) {
 
     ActualUser.newTypeDechet(type);
-    updatUserTab();
+    updateUserTab();
   }
 
   // ---------------------------------------------------------------------------
@@ -685,7 +685,7 @@ class prototype {
     // ajoute l'utilisateur a une liste d'utilisateur en attandant que leur compte
     // soit valider
     attenteUser.add(new Resident(code, userNom, userPrenom, Telephone, userMdp, userEmail, userAdresse));
-    updatUserTab();
+    updateUserTab();
   }
 
   // ajoute un conssomateur a la liste d'utilisateur en attente
@@ -735,7 +735,7 @@ class prototype {
     // soit valider
     attenteUser.add(
         new Consomateur(code, userNom, userAdresse, userMdp, userEmail, Telephone, activiter, TypeDechet, capacite));
-    updatUserTab();
+    updateUserTab();
   }
 
 }

@@ -8,14 +8,11 @@ import java.io.IOException;
 
 
 public class ReadResident {
-    
 
     public static void main(String[] args) throws IOException {
        
         modifResident( 1, "nouveauxMot", 1) ;
     }
-
-
 
     /**Fonction pour lire le fichier database des résidents. 
      * @return

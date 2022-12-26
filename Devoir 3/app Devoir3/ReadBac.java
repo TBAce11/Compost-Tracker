@@ -8,13 +8,9 @@ import java.io.IOException;
 
 
 public class ReadBac {
-    
-
     public static void main(String[] args) throws IOException {
         
     }
-
-
 
     public static ArrayList<Bac> read() throws FileNotFoundException { 
         

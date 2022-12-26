@@ -1,5 +1,5 @@
 public class Capteur {
-    int poidsBac, niveauRemplissageBac;
+    private int poidsBac, niveauRemplissageBac;
 
     /**
      * Instancie un poids allant de 1 à 25kg et un pourcentage de niveau de remplissage aux capteurs des trois

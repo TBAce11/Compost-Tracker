@@ -8,14 +8,9 @@ import java.io.IOException;
 
 
 public class ReadLot {
-    
 
     public static void main(String[] args) throws IOException {
-        
-        
     }
-
-
 
     /**Fonction pour lire le fichier Lot
      * @return

@@ -4,13 +4,13 @@ public class Metriques {
     /**
      * Classe de calcul de toutes les métriques liées aux résidents à l'aide des données observées par les capteurs
      */
-    int Nr, Pr, Nc, Pc, No, Po, masseTotale, tauxContamination, tauxDiversion;
-    double facteurPN, facteurPNU, ecoScore;
-    Capteur capteurRecyclage, capteurCompost, capteurOrdures;
-    static ArrayList<Integer> UsageRecyclables = new ArrayList<>();
-    static ArrayList<Integer> UsageCompostables = new ArrayList<>();
-    static ArrayList<Integer> ProportionRecyclage = new ArrayList<>();
-    static ArrayList<Integer> ProportionCompostage = new ArrayList<>();
+    private int Nr, Pr, Nc, Pc, No, Po, masseTotale, tauxContamination, tauxDiversion;
+    private double facteurPN, facteurPNU, ecoScore;
+    private Capteur capteurRecyclage, capteurCompost, capteurOrdures;
+    private static ArrayList<Integer> UsageRecyclables = new ArrayList<>();
+    private static ArrayList<Integer> UsageCompostables = new ArrayList<>();
+    private static ArrayList<Integer> ProportionRecyclage = new ArrayList<>();
+    private static ArrayList<Integer> ProportionCompostage = new ArrayList<>();
 
     public Metriques() {
         this.capteurRecyclage = new Capteur();
