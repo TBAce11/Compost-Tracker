@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 
 public class Metriques {
+    /**
+     * Classe de calcul de toutes les métriques liées aux résidents à l'aide des données observées par les capteurs
+     */
     int Nr, Pr, Nc, Pc, No, Po, masseTotale, tauxContamination, tauxDiversion;
     double facteurPN, facteurPNU, ecoScore;
     Capteur capteurRecyclage, capteurCompost, capteurOrdures;
@@ -27,10 +30,32 @@ public class Metriques {
         this.ecoScore = EcoScore(this.Nr, this.Pr, this.Nc, this.Pc, this.No, this.Po);
     }
 
+    /**
+     * Calcul de la masse totale des trois types de déchets émis par le résident
+     * @param Pr
+     *      Poids des déchets recyclables
+     * @param Pc
+     *      Poids des déchets compostables
+     * @param Po
+     *      Poids des ordures ménagères
+     * @return Pr + Pc + Po
+     *      Masse totale
+     */
     public int masseTotale(int Pr, int Pc, int Po) {
         return Pr + Pc + Po;
     }
 
+    /**
+     * Calcul du taux de déchets recyclables contaminés
+     * @param Pr
+     *      Poids des déchets recyclables
+     * @param Pc
+     *      Poids des déchets compostables
+     * @param Po
+     *      Poids des ordures ménagères
+     * @return taux
+     *      Taux de contamination
+     */
     public int tauxContamination(int Pr, int Pc, int Po) {
         double taux = ((double) Pr / (Pc + Po)) * 100;
 
@@ -41,14 +66,57 @@ public class Metriques {
         return (int) taux;
     }
 
+    /**
+     * Calcul du taux de matières recyclables réellement recyclées
+     * @param Pr
+     *      Poids des déchets recyclables
+     * @param Po
+     *      Poids des ordures ménagères
+     * @return Pr / (Pr + Po) * 100
+     *      Taux de diversion
+     */
     public int tauxDiversion(int Pr, int Po) {
         return (int)(((double) Pr / (Pr + Po)) * 100);
     }
 
+    /**
+     * Calcul du facteur PN issu de l'ÉcoScore
+     * @param Nr
+     *      Niveau de remplissage des déchets recyclables
+     * @param Pr
+     *      Poids des déchets recyclables
+     * @param Nc
+     *      Niveau de remplissage des déchets compostables
+     * @param Pc
+     *      Poids des déchets compostables
+     * @param No
+     *      Niveau de remplissage des ordures ménagères
+     * @param Po
+     *      Poids des ordures ménagères
+     * @return (PNr(Nr, Pr) + PNc(Nc, Pc)) / (PNo(No, Po) + 1)
+     *      Facteur PN
+     */
     public double FacteurPN(int Nr, int Pr, int Nc, int Pc, int No, int Po) {
         return ((double) (PNr(Nr, Pr) + PNc(Nc, Pc)) / (PNo(No, Po) + 1));
     }
 
+    /**
+     * Calcul du facteur PNU issu de l'ÉcoScore
+     * @param Nr
+     *      Niveau de remplissage des déchets recyclables
+     * @param Pr
+     *      Poids des déchets recyclables
+     * @param Nc
+     *      Niveau de remplissage des déchets compostables
+     * @param Pc
+     *      Poids des déchets compostables
+     * @param No
+     *      Niveau de remplissage des ordures ménagères
+     * @param Po
+     *      Poids des ordures ménagères
+     * @return (Math.log(PNr(Nr, Pr) * UR + PNc(Nc, Pc) * UC + 1) / ((PNo(No, Po) + 1)))
+     *      Facteur PNU
+     */
     public Double FacteurPNU(int Nr, int Pr, int Nc, int Pc, int No, int Po) {
         UsageRecyclables.clear();
         UsageCompostables.clear();
@@ -83,6 +151,23 @@ public class Metriques {
 
     }
 
+    /**
+     * Calcul de l'ÉcoScore
+     * @param Nr
+     *      Niveau de remplissage des déchets recyclables
+     * @param Pr
+     *      Poids des déchets recyclables
+     * @param Nc
+     *      Niveau de remplissage des déchets compostables
+     * @param Pc
+     *      Poids des déchets compostables
+     * @param No
+     *      Niveau de remplissage des ordures ménagères
+     * @param Po
+     *      Poids des ordures ménagères
+     * @return FacteurPN(Nr, Pr, Nc, Pc, No, Po) / FacteurPNU(100, Pr, 100, Pc, 0, Po)
+     *      ÉcoScore
+     */
     public Double EcoScore(int Nr, int Pr, int Nc, int Pc, int No, int Po) {
         return (FacteurPN(Nr, Pr, Nc, Pc, No, Po) / FacteurPNU(100, Pr, 100, Pc, 0, Po));
     }
@@ -100,7 +185,13 @@ public class Metriques {
         return No * Po;
     }
 
-    //Usage relatif des déchets
+    /**
+     * Calcul de l'usage relatif des déchets maximal
+     * @param tab
+     *      Tableau des pourcentages d'usages relatifs des déchets
+     * @return max
+     *      Usage relatif des déchets maximal
+     */
     public int getMax(ArrayList<Integer> tab) {
         int max = 0;
         for (int i = 0; i < tab.size(); i++) {

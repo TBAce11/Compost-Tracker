@@ -2,7 +2,13 @@ public class Activite {
 	private String nom;
 	private String typeDechet;
 	private int note;
-	
+
+	/**
+	 * Constructeur d'instances d'Activite
+	 * @param nom
+	 * @param typeDechet
+	 * @param note
+	 */
 	public Activite(String nom, String typeDechet, int note) {
 		this.nom = nom;
 		this.typeDechet = typeDechet;
@@ -27,6 +33,4 @@ public class Activite {
 	public void setNote(int note) {
 		this.note = note;
 	}
-	
-	
 }

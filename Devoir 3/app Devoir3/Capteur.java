@@ -1,13 +1,9 @@
 public class Capteur {
-
-    /**
-     * Classe de capteur individuel prenant les mesures de poids (max: 25kg) et de remplissage de chaque type de résidu
-     * @author Tarik Benakezouh
-     */
     int poidsBac, niveauRemplissageBac;
 
     /**
-     *
+     * Instancie un poids allant de 1 à 25kg et un pourcentage de niveau de remplissage aux capteurs des trois
+     * catégories de déchets émis par les résidents
      *
      */
     public Capteur() {
